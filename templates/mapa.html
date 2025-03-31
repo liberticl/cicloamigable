@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    {% block head %}
+    {% include "_head.html" %}
+    {% endblock %}
+
+    <!-- Deck.gl headers -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.0.*/dist/index.js'></script>
+</head>
+
+<body>
+    <div class="content">
+
+        <a href="/">
+            <img src="{{ url_for('static', filename='img/bikepoint.png') }}" alt="Logo" class="logo">
+        </a>
+
+        {% block navbar %}
+        {% include "_navbar.html" %}
+        {% endblock %}
+
+        <div class="map-content">
+            {{ map|safe }}
+        </div>
+    </div>
+</body>

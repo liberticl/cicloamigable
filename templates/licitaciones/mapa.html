@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="map-container">
+        <div class="sidebar">
+            <h2>Opciones</h2>
+            <label for="region">Región:</label>
+            <select id="region">
+                <option value="metropolitana">Metropolitana</option>
+                <!-- Otras opciones de región -->
+            </select>
+            <label for="comuna">Comuna:</label>
+            <select id="comuna">
+                <option value="santiago">Santiago</option>
+                <!-- Otras opciones de comuna -->
+            </select>
+            <h3>Capas visibles:</h3>
+            <input type="checkbox" id="estacionamientos"> Estacionamientos
+            <input type="checkbox" id="ciclovias"> Ciclovías
+            <!-- Más opciones de capas -->
+            <p id="estadisticas">Cantidad de lugares encontrados: 0</p>
+            <p id="leyenda">Leyenda del mapa: </p>
+        </div>
+        <div class="map" id="map"></div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
+    <script src="{{ url_for('static', filename='js/mapa.js') }}"></script>
+{% endblock %}

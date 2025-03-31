@@ -1,0 +1,6 @@
+<!-- Navegación -->
+<nav class="navbar">
+    {% for item in navbar_items %}
+    <a href="{{ item.url }}" class="nav-item">{{ item.name }}</a>
+    {% endfor %}
+</nav>

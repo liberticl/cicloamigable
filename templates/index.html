@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="content">
+    <!-- Ilustración principal -->
+    <img src="{{ url_for('static', filename='img/front-page.png') }}" alt="Descubre Valparaíso"
+        class="main-illustration">
+
+    <!-- Contenido principal (lado derecho) -->
+    <div class="main-content">
+        <h1 class="main-title"><br>¡Valparaíso ahora es Ciclo-amigable!</h1>
+
+        <!-- <div class="button-group">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Inicia sesión</a>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">Regístrate</a>
+        </div> -->
+        <div class="button-group">
+            <a href="{{ url_for('mapa') }}" class="btn btn-primary">Ver más</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
