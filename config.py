@@ -4,10 +4,10 @@ BASE_URL = "http://localhost:5000"  # Cambia según tu entorno
 NAVBAR_ITEMS = [
     {"name": "Inicio", "url": "/"},
     # {"name": "Licitaciones", "url": "/licitaciones"},
-    {"name": "Mapa", "url": "/mapa"},
     # {"name": "Presentación", "url": "/presentacion"},
     {"name": "Nosotros", "url": "/nosotros"},
-    {"name": "Actividades", "url": "/actividades"},
+    {"name": "Mapa", "url": "/mapa"},
+    # {"name": "Actividades", "url": "/actividades"},
 ]
 
 
