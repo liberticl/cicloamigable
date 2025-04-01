@@ -3,20 +3,6 @@ from bs4 import BeautifulSoup
 
 
 def create_map(points):
-    # layer = pdk.Layer(
-    #     "ScatterplotLayer",
-    #     data=points,
-    #     pickable=True,
-    #     opacity=0.6,
-    #     filled=True,
-    #     radius_scale=5,
-    #     radius_min_pixels=2,
-    #     radius_max_pixels=10,
-    #     get_position="coordinates",
-    #     get_radius=10,
-    #     get_fill_color=[0, 137, 88],
-    # )
-
     layer = pdk.Layer(
         "IconLayer",
         data=points,
@@ -27,33 +13,43 @@ def create_map(points):
         pickable=True,
     )
 
-    # Vista del mapa centrada en Viña del Mar
     view_state = pdk.ViewState(
         longitude=-71.617950,
         latitude=-33.040821,
         zoom=13.5,
-        # pitch=45,
     )
 
-
-    # Renderizar
     r = pdk.Deck(
         layers=[layer],
         initial_view_state=view_state,
         map_style="light",
-        # map_style="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",  # noqa
         height="500px",
         width="100%",
         tooltip={
-            "html": "<b>{name}</b><br/>{description}",
-            # "style": {
-            #     "backgroundColor": "steelblue",
-            #     "color": "white"
-            # }
+            "html": """
+                <div style="
+                    background: rgba(249, 249, 249, 0.95);
+                    border: 1px solid #ddd;
+                    border-radius: 1.5rem;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    padding: 8px 12px;
+                    font-family: Arial, sans-serif;
+                    color: #333;
+                    transition: all 1.4s ease;
+                    width: 30%;
+                    text-align: justify;
+                    text-align-last: left;
+                ">
+                    <b style='font-size: 16px; color: #222;'>{name}</b>
+                    <div style='margin-top: 4px; font-size: 14px;'>{description}</div>
+                </div>
+            """,
+            "style": {
+                "backgroundColor": "transparent",
+                "border": "none"
+            }
         }
     )
-
-
     return r.to_html(as_string=True)
 
 
