@@ -1,11 +1,18 @@
 from werkzeug.middleware.proxy_fix import ProxyFix
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, redirect, request
 from config import NAVBAR_ITEMS, get_points
 from utils import create_map, get_map_html
 
 
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+
+@app.before_request
+def force_https():
+    if not request.is_secure:
+        url = request.url.replace("http://", "https://", 1)
+        return redirect(url, code=301)
 
 
 @app.route("/")
