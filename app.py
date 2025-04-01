@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-from config import NAVBAR_ITEMS, POINTS, BASE_URL
+from flask import Flask, render_template, url_for
+from config import NAVBAR_ITEMS, get_points
 from utils import create_map, get_map_html
 
 
@@ -16,14 +16,15 @@ def home():
 
 
 def update_icon_path(point):
-    # point["icon"] = url_for("static", filename=point["icon"], _external=True)
-    point["icon"] = f"{BASE_URL}/static/{point['icon']}"
+    point["icon"] = f"{url_for('home', _external=True)}/static/{point['icon']}"
     return point
 
 
 @app.route("/mapa")
 def mapa():
-    this_map = create_map(POINTS)
+    base_url = url_for('home', _external=True)
+    points = get_points(base_url)
+    this_map = create_map(points)
     content = get_map_html(this_map)
     return render_template("mapa.html",
                            navbar_items=NAVBAR_ITEMS,
