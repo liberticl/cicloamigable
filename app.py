@@ -8,11 +8,11 @@ app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 
-@app.before_request
-def force_https():
-    if not request.is_secure:
-        url = request.url.replace("http://", "https://", 1)
-        return redirect(url, code=301)
+# @app.before_request
+# def force_https():
+#     if not request.is_secure:
+#         url = request.url.replace("http://", "https://", 1)
+#         return redirect(url, code=301)
 
 
 @app.route("/")
