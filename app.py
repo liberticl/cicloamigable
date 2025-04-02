@@ -1,11 +1,11 @@
-from werkzeug.middleware.proxy_fix import ProxyFix
-from flask import Flask, render_template, url_for, redirect, request
-from config import NAVBAR_ITEMS, get_points
+# from werkzeug.middleware.proxy_fix import ProxyFix
+from flask import Flask, render_template, url_for
+from config import NAVBAR_ITEMS, PROD, get_points
 from utils import create_map, get_map_html
 
 
 app = Flask(__name__)
-app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+# app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 
 # @app.before_request
@@ -31,7 +31,7 @@ def update_icon_path(point):
 
 @app.route("/mapa")
 def mapa():
-    base_url = url_for('home', _external=True)
+    base_url = 'https://cicloamigable.cl' if PROD else 'http://localhost:5000'
     points = get_points(base_url)
     this_map = create_map(points)
     content = get_map_html(this_map)

@@ -1,3 +1,5 @@
+PROD = True
+
 NAVBAR_ITEMS = [
     {"name": "Inicio", "url": "/"},
     # {"name": "Licitaciones", "url": "/licitaciones"},
