@@ -31,8 +31,8 @@ def update_icon_path(point):
 
 @app.route("/mapa")
 def mapa():
-    # base_url = 'https://cicloamigable.cl' if PROD else 'http://localhost:5000'
-    base_url = 'https://cicloamigable-production.up.railway.app/' if PROD else 'http://localhost:5000'
+    base_url = 'https://www.cicloamigable.cl' if PROD else 'http://localhost:5000'
+    # base_url = 'https://cicloamigable-production.up.railway.app/' if PROD else 'http://localhost:5000'
     points = get_points(base_url)
     this_map = create_map(points)
     content = get_map_html(this_map)
