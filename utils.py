@@ -27,19 +27,7 @@ def create_map(points):
         width="100%",
         tooltip={
             "html": """
-                <div style="
-                    background: rgba(249, 249, 249, 0.95);
-                    border: 1px solid #ddd;
-                    border-radius: 1.5rem;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                    padding: 8px 12px;
-                    font-family: Arial, sans-serif;
-                    color: #333;
-                    transition: all 1.4s ease;
-                    width: 30%;
-                    text-align: justify;
-                    text-align-last: left;
-                ">
+                <div class="tooltip">
                     <b style='font-size: 16px; color: #222;'>{name}</b>
                     <div style='margin-top: 4px; font-size: 14px;'>{description}</div>
                 </div>

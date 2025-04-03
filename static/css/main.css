@@ -94,6 +94,25 @@ body {
   color: #008958;
 }
 
+.tooltip {
+  background: rgba(249, 249, 249, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px 12px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  /* opacity: 1;
+  transition: opacity 1.4s ease; */
+  width: 30%;
+  text-align: justify;
+  text-align-last: left;
+}
+
+/* .tooltip:hover {
+  opacity: 1;
+} */
+
 /* Botones */
 .button-group {
   display: flex;
@@ -331,7 +350,7 @@ body {
 
   .about-illustration {
     position: relative;
-    left:5%;
+    left: 5%;
     top: 50px;
     width: 90%;
     max-width: 100%;
@@ -388,6 +407,10 @@ body {
 
   .device {
     display: none;
+  }
+
+  .tooltip {
+    width: 50%;
   }
 
   .speech-bubble {
