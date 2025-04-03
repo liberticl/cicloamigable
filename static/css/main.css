@@ -399,7 +399,8 @@ body {
   }
 
   #deck-container {
-    width: 95vw;
+    top: 15px;
+    width: 90vw;
     height: 85vh;
     margin-top: 12%;
   }
