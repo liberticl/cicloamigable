@@ -2,31 +2,32 @@
 
 {% block content %}
 <div class="content">
-    <!-- Ilustración principal -->
-    <img src="{{ url_for('static', filename='img/about.png') }}" alt="Descubre Valparaíso" class="about-illustration">
+    <img src="{{ url_for('static', filename='img/about.png') }}" alt="Sobre Valparaíso Cicloamigable"
+        class="about-illustration">
 
     <!-- Contenido principal (lado derecho) -->
     <div class="about-content">
         <h1 class="second-title">Sobre el proyecto</h1>
 
         <p class="paragraph">
-            Valparaíso Cicloamigable nace ante la necesidad de concretar una visión de transformación en nuestra comuna, una llamada ciudad pendiente
-            a los ojos de Chile y el mundo, es decir, una ciudad que tiene pendiente las temáticas de movilidad sostenible en las inclinadas calles que 
-            la componen.
+            Valparaíso Cicloamigable nace ante la necesidad de concretar una visión de transformación en nuestra comuna,
+            una llamada ciudad pendiente a los ojos de Chile y el mundo, es decir, una ciudad que tiene pendiente las temáticas 
+            de movilidad sostenible en las inclinadas calles que la componen.
             <br><br>
-            Mientras desde hace años la comunidad ciclista derriba día a día el mito de la ciudad no-pedaleable, a fines de 2022 el equipo de <a class="link" href="https://andeschileong.cl", target="_blank"><b>Andes Chile ONG</b></a>
-            concibe la idea de un proyecto que propone cambiar esta visión, con la cual genera una alianza con MFCP y se expone la idea ante la Comisión de Finanzas
-            del Concejo Municipal, dirigida por Camila Nieto, y la Secretaría de Planificación Urbana, dirigida por Alejandro Escobar.
+            Mientras desde hace años la comunidad ciclista derriba día a día el mito de la ciudad no-pedaleable, a fines
+            de 2022 el equipo de <a class="link" href="https://andeschileong.cl" , target="_blank"><b>Andes Chile ONG</b></a>
+            concibe la idea de un proyecto que propone cambiar esta visión, con la cual genera una alianza con MFCP y se
+            expone la idea ante la Comisión de Finanzas del Concejo Municipal, dirigida por Camila Nieto, y la Secretaría de
+            Planificación Urbana, dirigida por Alejandro Escobar.
             <br><br>
-            Luego de dos años y medio de trabajo conjunto, el proyecto se presenta a la comunidad ciclista, a Valparaíso y al mundo como un primer paso de la comuna
-            porteña desde ser una ciudad pendiente a mostrarse como una ciudad cicloamigable.
+            Luego de dos años y medio de trabajo conjunto, el proyecto se presenta a la comunidad ciclista, a Valparaíso
+            y al mundo como un primer paso de la comuna porteña desde ser una ciudad pendiente a mostrarse como una ciudad
+            cicloamigable.
         </p>
 
         <div class="button-group">
             <a href="{{ url_for('mapa') }}" class="btn btn-secondary">Ver el mapa</a>
         </div>
     </div>
-
-    
 </div>
 {% endblock %}
