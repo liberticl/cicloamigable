@@ -49,6 +49,7 @@ def get_tabular_memt_data(points):
 
 
 def create_map(points):
+    middle = get_middle_point(points)
     layer = pdk.Layer(
         "IconLayer",
         data=points,
@@ -60,8 +61,8 @@ def create_map(points):
     )
 
     view_state = pdk.ViewState(
-        longitude=-71.617950,
-        latitude=-33.040821,
+        longitude=middle[0],
+        latitude=middle[1],
         zoom=13.5,
     )
 
@@ -183,7 +184,7 @@ def create_memt_map(points):
             """,
             "style": {
                 "text-align": "center",
-                "backgroundColor": "rgb(255,255,255,0.1)",
+                "backgroundColor": "rgb(255,255,255,0.7)",
                 "padding": "10px",
                 "borderRadius": "1.5rem",
                 "boxShadow": "0 2px 10px rgba(0,0,0,0.2)"
