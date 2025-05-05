@@ -137,45 +137,62 @@ def create_memt_map(points):
                     </b>
                     <div style='margin-top: 4px; font-size: 14px;'>
                         <p>Desde {place_name} hasta {destiny}</p>
+                        <p>(Tiempo medido en {data_unit})</p>
                         <table class="travel-table">
                             <thead>
                                 <tr>
                                     <th>Modo</th>
-                                    <th>Tiempo ({data_unit})</th>
+                                    <th>Tiempo</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Bicicleta</td>
-                                    <td class="minutes">{bike_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{bike_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Transporte público</td>
-                                    <td class="minutes">{bus_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{bus_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Automóvil</td>
-                                    <td class="minutes">{car_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{car_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Motocicleta</td>
-                                    <td class="minutes">{moto_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{moto_time}</td>
                                 </tr>
                                 <tr>
                                     <td>A pie</td>
-                                    <td class="minutes">{walk_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{walk_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Metro o tren</td>
-                                    <td class="minutes">{train_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{train_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Ciclos (patines, scooter)</td>
-                                    <td class="minutes">{scooter_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{scooter_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Otros</td>
-                                    <td class="minutes">{other_time}</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{other_time}</td>
                                 </tr>
                             </tbody>
                         </table>
