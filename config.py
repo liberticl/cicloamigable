@@ -6,6 +6,7 @@ NAVBAR_ITEMS = [
     # {"name": "Presentación", "url": "/presentacion"},
     {"name": "Proyecto", "url": "/proyecto"},
     {"name": "Mapa", "url": "/mapa"},
+    {"name": "MEMT", "url": "/memt"},
     # {"name": "Actividades", "url": "/actividades"},
 ]
 
@@ -155,6 +156,51 @@ VLPO_CICLOAMIGABLE = [
             }
         }
     ]
+
+
+MEMT = [
+    {
+        "city": "Antofagasta",
+        "destiny": "Parque Brasil",
+        "coordinates": [-70.401176, -23.654052],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-70.384487, -23.623107],
+                "place_name": "Plaza Lautaro",
+                "route_name": "Sector Norte",
+                "distance": 4.5,
+                "data": [
+                    {
+                        "bike": 10,
+                        "bus": 20,
+                        "car": 35
+                    }
+                ]
+            },
+            {
+                "coordinates": [-70.409985, -23.693076],
+                "place_name": "Plaza Coviefi",
+                "route_name": "Sector Sur",
+                "distance": 4.8,
+                "data": [
+                    {
+                        "bike": 15,
+                        "bus": 18,
+                        "car": 29
+                    }
+                ]
+            }
+        ]
+    }
+]
 
 
 def get_points(points: list, base_url: str):

@@ -428,3 +428,57 @@ body {
     margin-top: 12%;
   }
 }
+
+/* Tabla de viajes MEMT */
+.travel-table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.travel-table thead tr {
+  background-color: #36a9e0;
+  background: linear-gradient(to right, #00d2ff, #36a9e0);
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.travel-table th,
+.travel-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.travel-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.travel-table tbody tr:hover {
+  background-color: #f5f9ff;
+}
+
+.mode-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.minutes {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+@media (max-width: 600px) {
+  .travel-table th,
+  .travel-table td {
+      padding: 12px 15px;
+  }
+}

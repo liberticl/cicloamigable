@@ -12,10 +12,15 @@ MarkupSafe==3.0.2
 mccabe==0.7.0
 numpy==2.2.4
 packaging==24.2
+pandas==2.2.3
 pycodestyle==2.13.0
 pydeck==0.9.1
 pyflakes==3.3.2
+python-dateutil==2.9.0.post0
+pytz==2025.2
+six==1.17.0
 soupsieve==2.6
 typing_extensions==4.13.0
+tzdata==2025.2
 waitress==3.0.2
 Werkzeug==3.1.3
