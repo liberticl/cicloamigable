@@ -366,19 +366,19 @@ MEMT = [
 NOT_USED_HTML = """
     <tr>
         <td>A pie</td>
-        <td class="minutes" 
+        <td class="minutes"
             style="text-align: center;"
             >{walk_time}</td>
     </tr>
     <tr>
         <td>Ciclos (patines, scooter)</td>
-        <td class="minutes" 
+        <td class="minutes"
             style="text-align: center;"
             >{scooter_time}</td>
     </tr>
     <tr>
         <td>Otros</td>
-        <td class="minutes" 
+        <td class="minutes"
             style="text-align: center;"
             >{other_time}</td>
     </tr>

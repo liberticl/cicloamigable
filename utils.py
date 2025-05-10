@@ -15,7 +15,7 @@ def get_city_info(selected, points):
     if not selected:
         return None
 
-    sel = selected.replace(' ','').split('(') 
+    sel = selected.replace(' ', '').split('(')
     for p in points:
         if p['city'] == sel[0] and p['country'] == sel[1].replace(')', ''):
             return p
@@ -107,9 +107,9 @@ def create_memt_map(points, city=None):
     memt_data = get_tabular_memt_data(points)
 
     if city:
-        sel = city.replace(' ','').split('(')
+        sel = city.replace(' ', '').split('(')
         for p in points:
-            if p['city'] == sel[0] and p['country'] == sel[1].replace(')',''):
+            if p['city'] == sel[0] and p['country'] == sel[1].replace(')', ''):
                 middle = p['coordinates']
                 if len(p['measures']) > 1:
                     middle = [middle[0] - 0.015, middle[1] + 0.015]
@@ -173,37 +173,37 @@ def create_memt_map(points, city=None):
                             <tbody>
                                 <tr>
                                     <td>Bicicleta</td>
-                                    <td class="minutes" 
+                                    <td class="minutes"
                                         style="text-align: center;"
                                         >{bike_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Micro o bus</td>
-                                    <td class="minutes" 
+                                    <td class="minutes"
                                         style="text-align: center;"
                                         >{bus_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Automóvil</td>
-                                    <td class="minutes" 
+                                    <td class="minutes"
                                         style="text-align: center;"
                                         >{car_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Taxi o colectivo</td>
-                                    <td class="minutes" 
+                                    <td class="minutes"
                                         style="text-align: center;"
                                         >{public_car_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Motocicleta</td>
-                                    <td class="minutes" 
+                                    <td class="minutes"
                                         style="text-align: center;"
                                         >{moto_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Metro o tren</td>
-                                    <td class="minutes" 
+                                    <td class="minutes"
                                         style="text-align: center;"
                                         >{train_time}</td>
                                 </tr>
