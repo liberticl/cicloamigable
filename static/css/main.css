@@ -278,8 +278,12 @@ body {
 /* Deck Container */
 #deck-container {
   width: 95vw;
-  height: 80vh;
+  height: 85vh;
   margin-top: 6%;
+}
+
+.mapboxgl-control-container {
+  display: none;
 }
 
 #deck-container canvas {
@@ -461,7 +465,7 @@ body {
 }
 
 .travel-table tbody tr:hover {
-  background-color: #f5f9ff;
+  background-color: rgba(54, 73, 85,0.25);
 }
 
 .mode-icon {

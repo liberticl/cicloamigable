@@ -11,6 +11,17 @@ def get_middle_point(points):
     return [statistics.mean(all_lon), statistics.mean(all_lat)]
 
 
+def get_city_info(selected, points):
+    if not selected:
+        return None
+
+    sel = selected.replace(' ','').split('(') 
+    for p in points:
+        if p['city'] == sel[0] and p['country'] == sel[1].replace(')', ''):
+            return p
+    return None
+
+
 def get_tabular_memt_data(points):
     data = []
     for point in points:
@@ -92,9 +103,21 @@ def create_map(points):
     return r.to_html(as_string=True)
 
 
-def create_memt_map(points):
+def create_memt_map(points, city=None):
     memt_data = get_tabular_memt_data(points)
-    middle = get_middle_point(points)
+
+    if city:
+        sel = city.replace(' ','').split('(')
+        for p in points:
+            if p['city'] == sel[0] and p['country'] == sel[1].replace(')',''):
+                middle = p['coordinates']
+                if len(p['measures']) > 1:
+                    middle = [middle[0] - 0.015, middle[1] + 0.015]
+                break
+        zoom_level = 13
+    else:
+        middle = get_middle_point(points)
+        zoom_level = 4
 
     city_layer = pdk.Layer(
         "IconLayer",
@@ -122,7 +145,7 @@ def create_memt_map(points):
     view_state = pdk.ViewState(
         longitude=middle[1],
         latitude=middle[0],
-        zoom=4,
+        zoom=zoom_level,
     )
 
     r = pdk.Deck(
@@ -144,7 +167,7 @@ def create_memt_map(points):
                             <thead>
                                 <tr>
                                     <th>Modo</th>
-                                    <th>Tiempo</th>
+                                    <th style="text-align: center;">Tiempo</th>
                                 </tr>
                             </thead>
                             <tbody>

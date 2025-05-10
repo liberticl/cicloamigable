@@ -5,6 +5,7 @@
     {% block head %}
     {% include "_head.html" %}
     {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memt.css') }}">
 
     <!-- Deck.gl headers -->
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
@@ -23,6 +24,94 @@
         {% block navbar %}
         {% include "_navbar.html" %}
         {% endblock %}
+
+        <div class="city-form">
+            <form method="get" action="{{ url_for('memt') }}">
+                <div class="form-group">
+                    <label class="form-label" for="city-selector">Seleccionar lugar</label>
+                    <select class="form-select" id="city-selector" name="city" onchange="this.form.submit()">
+                        <option value="">Todos</option>
+                        {% for city in cities %}
+                        <option value="{{ city }}" {% if selected==city %}selected{% endif %}>
+                            {{ city }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        {% if city_info %}
+        <div class="table">
+            <b class="table-title">Destino: {{ city_info.destiny }}</b>
+            <p class="paragraph">(Tiempo medido en {{ city_info.data_unit }})</p>
+            <div>
+                <table class="travel-table">
+                    <thead>
+                        <tr>
+                            <th>Modo</th>
+                            {% for route in city_info.measures %}
+                            <th style="text-align: center;">{{ route.place_name }}<br>({{ route.distance }} km)</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bicicleta</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].bike }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Micro o bus</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].bus }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Automóvil</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].car }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Metro o tren</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].train }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Taxi o colectivo</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].public_car }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Motocicleta</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].moto }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        <div class="table">
+            <b class="table-title">¿Qué es el MEMT?</b>
+            <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                La medicion de eficiencia en modos de transporte es una actividad basada en voluntarios/as que busca
+                determinar los tiempos de
+                traslado en hora punta en diversas ciudades del continente.
+            </p>
+            <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                Esta medición busca generar datos sobre las condiciones de movilidad de los diferentes usuarios, ya sean
+                bicicletas, scooter, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
+                basado en información, activar ,la participacion ciudadana, medios locales y politicos, buscando
+                promover el uso seguro y eficiente del espacio público.
+            </p>
+        </div>
+        {% endif %}
 
         <div class="map-content">
             {{ map|safe }}

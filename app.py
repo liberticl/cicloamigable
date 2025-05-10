@@ -1,7 +1,7 @@
 # from werkzeug.middleware.proxy_fix import ProxyFix
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from config import NAVBAR_ITEMS, VLPO_CICLOAMIGABLE, MEMT, get_points
-from utils import create_map, create_memt_map, get_map_html
+from utils import create_map, create_memt_map, get_map_html, get_city_info
 
 
 app = Flask(__name__)
@@ -33,11 +33,20 @@ def mapa():
 def memt():
     base_url = url_for('static', filename='img/icons')
     points = get_points(MEMT, base_url)
-    this_map = create_memt_map(points)
+
+    selected = request.args.get('city', None)
+    city_info = get_city_info(selected, points)
+
+    this_map = create_memt_map(points, city=selected)
     content = get_map_html(this_map)
+
+    cities = sorted(list({f"{point['city']} ({point['country']})" for point in points})) # noqa
     return render_template("memt.html",
                            navbar_items=NAVBAR_ITEMS,
-                           map=content)
+                           map=content,
+                           cities=cities,
+                           selected=selected,
+                           city_info=city_info)
 
 
 # @app.route("/presentacion")

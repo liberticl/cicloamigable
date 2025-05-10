@@ -1,0 +1,138 @@
+.map-content {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    right: 3%;
+    bottom: 5%;
+    justify-content: right;
+}
+
+.table-title {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    color: #364955;
+  }
+
+.paragraph {
+    font-weight: 150;
+    font-size: 15px;
+    color: #364955;
+    top: -50px;
+  }
+
+#deck-container {
+    width: 65vw;
+    height: 85vh;
+    margin-top: 6%;
+}
+
+/* Formulario de selección de comunas */
+.city-form {
+    position: absolute;
+    left: 2%;
+    top: 13%;
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 100;
+    /* background: rgba(255, 255, 255, 0.9); */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 500px;
+    transition: all 0.3s ease;
+  }
+  
+  .city-form:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    color: #364955;
+    margin-bottom: 10px;
+  }
+  
+  .form-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    color: #364955;
+    background-color: #F1FBFF;
+    border: 2px solid #BFD1DD;
+    border-radius: 8px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23364955'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-select:focus {
+    outline: none;
+    border-color: #008958;
+    box-shadow: 0 0 0 3px rgba(0, 137, 88, 0.2);
+  }
+  
+  .form-submit {
+    width: 100%;
+    padding: 12px;
+    background: #008958;
+    color: #F1FBFF;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .form-submit:hover {
+    background: #00734d;
+    transform: translateY(-2px);
+  }
+  
+  /* Versión responsive */
+  @media (max-width: 768px) {
+    .city-form {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: 90%;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .form-select {
+      font-size: 14px;
+      padding: 10px 12px;
+    }
+  }
+
+  /* TABLAS */
+  .table {
+    position: absolute;
+    left: 2%;
+    top: 33%;
+    width: 90%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 100;
+    /* background: rgba(255, 255, 255, 0.9); */
+    padding: 20px;
+    /* border-radius: 15px; */
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
+    width: 500px;
+    transition: all 0.3s ease;
+  }
