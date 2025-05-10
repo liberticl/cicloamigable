@@ -333,7 +333,7 @@ MEMT = [
         "country": "Chile",
         "city": "Molina",
         "destiny": "Villa María Auxiliadora",
-        "coordinates": [-35.109363, -71.277836],
+        "coordinates": [-35.106129, -71.276390],
         "data_unit": "minutos",
         "distance_unit": "kilómetros",
         "icon": {
@@ -344,7 +344,7 @@ MEMT = [
         },
         "measures": [
             {
-                "coordinates": [-35.103887, -71.302886],
+                "coordinates": [-35.103925, -71.302827],
                 "place_name": "Terminal Aquelarre",
                 "route_name": "Ruta Única",
                 "distance": 3,
