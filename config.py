@@ -160,9 +160,10 @@ VLPO_CICLOAMIGABLE = [
 
 MEMT = [
     {
+        "country": "Chile",
         "city": "Antofagasta",
         "destiny": "Parque Brasil",
-        "coordinates": [-70.401176, -23.654052],
+        "coordinates": [-23.654052, -70.401176],
         "data_unit": "minutos",
         "distance_unit": "kilómetros",
         "icon": {
@@ -173,7 +174,7 @@ MEMT = [
         },
         "measures": [
             {
-                "coordinates": [-70.384487, -23.623107],
+                "coordinates": [-23.623107, -70.384487],
                 "place_name": "Plaza Lautaro",
                 "route_name": "Sector Norte",
                 "distance": 4.5,
@@ -186,7 +187,7 @@ MEMT = [
                 ]
             },
             {
-                "coordinates": [-70.409985, -23.693076],
+                "coordinates": [-23.693076, -70.409985],
                 "place_name": "Plaza Coviefi",
                 "route_name": "Sector Sur",
                 "distance": 4.8,
@@ -199,8 +200,189 @@ MEMT = [
                 ]
             }
         ]
+    },
+    {
+        "country": "Chile",
+        "city": "Concepción",
+        "destiny": "Plaza Independencia",
+        "coordinates": [-36.827098, -73.050154],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-36.820138, -73.014921],
+                "place_name": "Frontis UBB",
+                "route_name": "Concepción",
+                "distance": 5,
+                "data": [
+                    {
+                        "bike": 13,
+                        "bus": 30,
+                        "car": 34,
+                    }
+                ]
+            },
+            {
+                "coordinates": [-36.926334, -73.024522],
+                "place_name": "Plaza Ursulinas",
+                "route_name": "Chiguayante",
+                "distance": 12,
+                "data": [
+                    {
+                        "bike": 39.5,
+                        "bus": 37,
+                        "car": 36,
+                        "train": 50
+                    }
+                ]
+            },
+            {
+                "coordinates": [-36.846252, -73.130743],
+                "place_name": "Estación Alborada",
+                "route_name": "San Pedro de la Paz",
+                "distance": 10,
+                "data": [
+                    {
+                        "car": 46,
+                        "train": 33
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Chile",
+        "city": "Talca",
+        "destiny": "Hospital Regional de Talca",
+        "coordinates": [-35.427558, -71.646429],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-35.442731, -71.629050],
+                "place_name": "8 Sur con 32 Oriente",
+                "route_name": "Sector Oriente Talca",
+                "distance": 2.8,
+                "data": [
+                    {
+                        "bike": 8,
+                        "bus": 25,
+                        "public_car": 20,
+                        "car": 24
+                    }
+                ]
+            },
+            {
+                "coordinates": [-35.459411, -71.664591],
+                "place_name": "Sector Sur Maule Norte",
+                "route_name": "9 Oriente con 29 Sur",
+                "distance": 4.4,
+                "data": [
+                    {
+                        "bike": 10,
+                        "bus": 36,
+                        "car": 26
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Chile",
+        "city": "Curicó",
+        "destiny": "Plaza de Armas",
+        "coordinates": [-34.985682, -71.230498],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-34.961628, -71.204214],
+                "place_name": "Avenida Amsterdam con París",
+                "route_name": "Ruta Única",
+                "distance": 5.5,
+                "data": [
+                    {
+                        "bike": 17,
+                        "moto": 26,
+                        "public_car": 31,
+                        "car": 28
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Chile",
+        "city": "Molina",
+        "destiny": "Villa María Auxiliadora",
+        "coordinates": [-35.109363, -71.277836],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-35.103887, -71.302886],
+                "place_name": "Terminal Aquelarre",
+                "route_name": "Ruta Única",
+                "distance": 3,
+                "data": [
+                    {
+                        "bike": 11,
+                        "moto": 11,
+                        "bus": 19,
+                        "car": 13,
+                        "walk": 46
+                    }
+                ]
+            }
+        ]
     }
 ]
+
+
+NOT_USED_HTML = """
+    <tr>
+        <td>A pie</td>
+        <td class="minutes" 
+            style="text-align: center;"
+            >{walk_time}</td>
+    </tr>
+    <tr>
+        <td>Ciclos (patines, scooter)</td>
+        <td class="minutes" 
+            style="text-align: center;"
+            >{scooter_time}</td>
+    </tr>
+    <tr>
+        <td>Otros</td>
+        <td class="minutes" 
+            style="text-align: center;"
+            >{other_time}</td>
+    </tr>
+"""
 
 
 def get_points(points: list, base_url: str):

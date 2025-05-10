@@ -35,6 +35,7 @@ def get_tabular_memt_data(points):
                 # Tiempos de transporte
                 'bike_time': transport_data.get('bike', "-"),
                 'bus_time': transport_data.get('bus', "-"),
+                'public_car_time': transport_data.get('public_car', "-"),
                 'car_time': transport_data.get('car', "-"),
                 'walk_time': transport_data.get('walk', "-"),
                 'moto_time': transport_data.get('moto', "-"),
@@ -42,6 +43,7 @@ def get_tabular_memt_data(points):
                 'scooter_time': transport_data.get('scooter', "-"),
                 'other_time': transport_data.get('other', "-"),
                 # Datos globales del punto
+                'country': point['country'],
                 'city': point['city'],
                 'destiny': point['destiny']
             })
@@ -99,8 +101,8 @@ def create_memt_map(points):
         data=points,
         get_icon="icon",
         get_size=4,
-        size_scale=15,
-        get_position="coordinates",
+        size_scale=10,
+        get_position=["coordinates[1]", "coordinates[0]"],
         pickable=False,
     )
 
@@ -108,8 +110,8 @@ def create_memt_map(points):
         "ArcLayer",
         data=memt_data,
         get_width=5,
-        get_source_position=["source_lng", "source_lat"],
-        get_target_position=["target_lng", "target_lat"],
+        get_source_position=["source_lat", "source_lng"],
+        get_target_position=["target_lat", "target_lng"],
         get_tilt=0,
         get_source_color=[54, 169, 224],
         get_target_color=[162, 190, 62],
@@ -118,9 +120,9 @@ def create_memt_map(points):
     )
 
     view_state = pdk.ViewState(
-        longitude=middle[0],
-        latitude=middle[1],
-        zoom=8,
+        longitude=middle[1],
+        latitude=middle[0],
+        zoom=4,
     )
 
     r = pdk.Deck(
@@ -153,7 +155,7 @@ def create_memt_map(points):
                                         >{bike_time}</td>
                                 </tr>
                                 <tr>
-                                    <td>Transporte público</td>
+                                    <td>Micro o bus</td>
                                     <td class="minutes" 
                                         style="text-align: center;"
                                         >{bus_time}</td>
@@ -165,34 +167,22 @@ def create_memt_map(points):
                                         >{car_time}</td>
                                 </tr>
                                 <tr>
+                                    <td>Taxi o colectivo</td>
+                                    <td class="minutes" 
+                                        style="text-align: center;"
+                                        >{public_car_time}</td>
+                                </tr>
+                                <tr>
                                     <td>Motocicleta</td>
                                     <td class="minutes" 
                                         style="text-align: center;"
                                         >{moto_time}</td>
                                 </tr>
                                 <tr>
-                                    <td>A pie</td>
-                                    <td class="minutes" 
-                                        style="text-align: center;"
-                                        >{walk_time}</td>
-                                </tr>
-                                <tr>
                                     <td>Metro o tren</td>
                                     <td class="minutes" 
                                         style="text-align: center;"
                                         >{train_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Ciclos (patines, scooter)</td>
-                                    <td class="minutes" 
-                                        style="text-align: center;"
-                                        >{scooter_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Otros</td>
-                                    <td class="minutes" 
-                                        style="text-align: center;"
-                                        >{other_time}</td>
                                 </tr>
                             </tbody>
                         </table>
