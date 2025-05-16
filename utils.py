@@ -208,7 +208,7 @@ def create_memt_map(points, city=None):
                                         >{train_time}</td>
                                 </tr>
                                 <tr>
-                                    <td>Ciclos (patines, skates, scooters)</td>
+                                    <td>Otros ciclos</td>
                                     <td class="minutes"
                                         style="text-align: center;"
                                         >{cicles_time}</td>
