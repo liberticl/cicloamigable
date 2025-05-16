@@ -31,7 +31,7 @@
 .city-form {
     position: absolute;
     left: 2%;
-    top: 13%;
+    top: 12%;
     width: 90%;
     max-width: 100%;
     margin: 0 auto;
@@ -40,14 +40,14 @@
     /* background: rgba(255, 255, 255, 0.9); */
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
     width: 500px;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
   }
   
-  .city-form:hover {
+  /* .city-form:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  }
+  } */
   
   .form-group {
     margin-bottom: 15px;
@@ -123,8 +123,8 @@
   .table {
     position: absolute;
     left: 2%;
-    top: 33%;
-    width: 90%;
+    top: 28%;
+    /* width: 95%; */
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -133,6 +133,6 @@
     padding: 20px;
     /* border-radius: 15px; */
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
-    width: 500px;
+    width: 510px;
     transition: all 0.3s ease;
   }
