@@ -117,7 +117,7 @@ def create_memt_map(points, city=None):
         zoom_level = 13
     else:
         middle = get_middle_point(points)
-        zoom_level = 4
+        zoom_level = 3
 
     city_layer = pdk.Layer(
         "IconLayer",
