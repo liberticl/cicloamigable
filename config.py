@@ -279,7 +279,7 @@ MEMT = [
                     {
                         "bike": 8,
                         "bus": 25,
-                        "public_car": 20,
+                        "taxi": 20,
                         "car": 24
                     }
                 ]
@@ -322,7 +322,7 @@ MEMT = [
                     {
                         "bike": 17,
                         "moto": 26,
-                        "public_car": 31,
+                        "taxi": 31,
                         "car": 28
                     }
                 ]
@@ -359,6 +359,50 @@ MEMT = [
                 ]
             }
         ]
+    },
+    {
+        "country": "Ecuador",
+        "city": "Guayaquil",
+        "destiny": "Plaza Pentagonal",
+        "coordinates": [-2.1686767, -79.9168653,],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-2.1860065, -79.8959017],
+                "place_name": "Calles Quisquís y Tungurahua",
+                "route_name": "Desde Quisquís y Tungurahua",
+                "distance": 3,
+                "data": [
+                    {
+                        "bike": 12,
+                        "car": 11,
+                        "moto": 10,
+                        "bus": 14
+                    }
+                ]
+            },
+            {
+                "coordinates": [-2.194815, -79.881133],
+                "place_name": "Plaza de la Administración",
+                "route_name": "Plaza de la Administración",
+                "distance": 5.7,
+                "data": [
+                    {
+                        "bike": "19 - 25",
+                        "car": 41,
+                        "cicles": 26,
+                        "bus": 40
+                    }
+                ]
+            }
+        ]
     }
 ]
 
@@ -371,10 +415,10 @@ NOT_USED_HTML = """
             >{walk_time}</td>
     </tr>
     <tr>
-        <td>Ciclos (patines, scooter)</td>
+        <td>Ciclos (patines, cicles)</td>
         <td class="minutes"
             style="text-align: center;"
-            >{scooter_time}</td>
+            >{cicles_time}</td>
     </tr>
     <tr>
         <td>Otros</td>

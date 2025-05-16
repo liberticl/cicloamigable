@@ -83,13 +83,19 @@
                         <tr>
                             <td>Taxi o colectivo</td>
                             {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].public_car }}</td>
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].taxi }}</td>
                             {% endfor %}
                         </tr>
                         <tr>
                             <td>Motocicleta</td>
                             {% for measure in city_info.measures %}
                             <td class="minutes" style="text-align: center;">{{ measure.data[0].moto }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Motocicleta</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].cicles }}</td>
                             {% endfor %}
                         </tr>
                     </tbody>
@@ -106,7 +112,7 @@
             </p>
             <p class="paragraph" style="margin-top: 10px; text-align:justify">
                 Esta medición busca generar datos sobre las condiciones de movilidad de los diferentes usuarios, ya sean
-                bicicletas, scooter, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
+                bicicletas, scooter, skates, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
                 basado en información, activar ,la participacion ciudadana, medios locales y politicos, buscando
                 promover el uso seguro y eficiente del espacio público.
             </p>

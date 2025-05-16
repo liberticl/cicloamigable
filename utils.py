@@ -46,12 +46,12 @@ def get_tabular_memt_data(points):
                 # Tiempos de transporte
                 'bike_time': transport_data.get('bike', "-"),
                 'bus_time': transport_data.get('bus', "-"),
-                'public_car_time': transport_data.get('public_car', "-"),
+                'taxi_time': transport_data.get('taxi', "-"),
                 'car_time': transport_data.get('car', "-"),
                 'walk_time': transport_data.get('walk', "-"),
                 'moto_time': transport_data.get('moto', "-"),
                 'train_time': transport_data.get('train', "-"),
-                'scooter_time': transport_data.get('scooter', "-"),
+                'cicles_time': transport_data.get('cicles', "-"),
                 'other_time': transport_data.get('other', "-"),
                 # Datos globales del punto
                 'country': point['country'],
@@ -193,7 +193,7 @@ def create_memt_map(points, city=None):
                                     <td>Taxi o colectivo</td>
                                     <td class="minutes"
                                         style="text-align: center;"
-                                        >{public_car_time}</td>
+                                        >{taxi_time}</td>
                                 </tr>
                                 <tr>
                                     <td>Motocicleta</td>
@@ -206,6 +206,12 @@ def create_memt_map(points, city=None):
                                     <td class="minutes"
                                         style="text-align: center;"
                                         >{train_time}</td>
+                                </tr>
+                                <tr>
+                                    <td>Ciclos (patines, skates, scooters)</td>
+                                    <td class="minutes"
+                                        style="text-align: center;"
+                                        >{cicles_time}</td>
                                 </tr>
                             </tbody>
                         </table>

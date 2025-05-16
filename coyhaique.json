@@ -1,0 +1,56 @@
+{
+    "country": "Chile",
+    "city": "Coyhaique",
+    "destiny": "Plaza Pentagonal",
+    "coordinates": [
+        -45.571238,
+        -72.068476
+    ],
+    "data_unit": "minutos",
+    "distance_unit": "kilómetros",
+    "icon": {
+        "url": "<BASE_URL>/memt/logo.png",
+        "width": 250,
+        "height": 250,
+        "anchorY": 250
+    },
+    "measures": [
+        {
+            "coordinates": [],
+            "place_name": "Socovesa",
+            "route_name": "Socovesa",
+            "distance": 3,
+            "data": [
+                {
+                    "bike": 7,
+                    "car": 8,
+                    "walk": 31
+                }
+            ]
+        },
+        {
+            "coordinates": [],
+            "place_name": "Oscar del Río",
+            "route_name": "Oscar del Río",
+            "distance": 3,
+            "data": [
+                {
+                    "bike": 10,
+                    "car": 10
+                }
+            ]
+        },
+        {
+            "coordinates": [],
+            "place_name": "Tejas Verdes",
+            "route_name": "Tejas Verdes",
+            "distance": 5,
+            "data": [
+                {
+                    "bike": 18,
+                    "car": 18
+                }
+            ]
+        }
+    ]
+}
