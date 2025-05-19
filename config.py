@@ -1,4 +1,5 @@
 PROD = False
+DECKGL_VERSION = '8.9.*'
 
 NAVBAR_ITEMS = [
     {"name": "Inicio", "url": "/"},

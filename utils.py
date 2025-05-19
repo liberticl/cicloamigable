@@ -1,6 +1,8 @@
+import re
 import pydeck as pdk
 import pandas as pd
 import statistics
+from config import DECKGL_VERSION
 from bs4 import BeautifulSoup
 
 
@@ -230,8 +232,20 @@ def create_memt_map(points, city=None):
     return r.to_html(as_string=True)
 
 
-def get_map_html(html_text):
+def change_gl_version(url: str):
+    match = re.search(r'@~(\d+\.\d+\.\*)', url)
+    if match:
+        return url.replace(match.group(1), DECKGL_VERSION)
+    else:
+        return url
+
+
+def get_html(html_text):
     soup = BeautifulSoup(html_text, 'html.parser')
-    script = list(soup.find_all('script'))[-1].string
-    return ''.join(
-        str(child) for child in soup.body.children) + f"\n<script>{script}</script>"  # noqa
+    scripts = list(soup.find_all('script'))
+    links = list(soup.find_all('link'))
+    html = links + scripts[:2]
+    headers = [change_gl_version(str(h)) for h in html]
+    gl_script = scripts[-1].string
+    deckgl = f'\n<div id="deck-container"></div>\n<script>{gl_script}</script>'  # noqa
+    return '\n'.join(headers), deckgl

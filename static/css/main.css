@@ -282,8 +282,12 @@ body {
   margin-top: 6%;
 }
 
-.mapboxgl-control-container {
-  display: none;
+.mapboxgl-ctrl-bottom-right {
+  margin-right: 2%;
+}
+
+.mapboxgl-ctrl {
+  border-radius: 1.5rem;
 }
 
 #deck-container canvas {
