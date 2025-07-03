@@ -4,6 +4,8 @@ import pandas as pd
 import statistics
 from config import DECKGL_VERSION
 from bs4 import BeautifulSoup
+import requests
+import json
 
 
 def get_middle_point(points):
@@ -46,15 +48,15 @@ def get_tabular_memt_data(points):
                 'distance_km': measure['distance'],
                 'data_unit': point['data_unit'],
                 # Tiempos de transporte
-                'bike_time': transport_data.get('bike', "-"),
-                'bus_time': transport_data.get('bus', "-"),
-                'taxi_time': transport_data.get('taxi', "-"),
-                'car_time': transport_data.get('car', "-"),
-                'walk_time': transport_data.get('walk', "-"),
-                'moto_time': transport_data.get('moto', "-"),
-                'train_time': transport_data.get('train', "-"),
-                'cicles_time': transport_data.get('cicles', "-"),
-                'other_time': transport_data.get('other', "-"),
+                'bike_time': transport_data.get('bike', '-'),
+                'bus_time': transport_data.get('bus', '-'),
+                'taxi_time': transport_data.get('taxi', '-'),
+                'car_time': transport_data.get('car', '-'),
+                'walk_time': transport_data.get('walk', '-'),
+                'moto_time': transport_data.get('moto', '-'),
+                'train_time': transport_data.get('train', '-'),
+                'cicles_time': transport_data.get('cicles', '-'),
+                'other_time': transport_data.get('other', '-'),
                 # Datos globales del punto
                 'country': point['country'],
                 'city': point['city'],
@@ -249,3 +251,86 @@ def get_html(html_text):
     gl_script = scripts[-1].string
     deckgl = f'\n<div id="deck-container"></div>\n<script>{gl_script}</script>'  # noqa
     return '\n'.join(headers), deckgl
+
+
+# Source: https://desarrolladores.mercadopublico.cl/
+API_TICKET = ''
+BASE_URL_LICITACIONES = 'https://api.mercadopublico.cl/servicios/v1/publico/licitaciones.json'
+
+
+def get_tenders(keywords, **kwargs):
+    """
+    Consulta licitaciones en Mercado Público.
+
+    Args:
+        keywords (list): Lista de palabras clave a buscar.
+        day (str, optional): Fecha asociada al estado de las licitaciones a buscar.
+        status (str, optional): Estado de las licitaciones a buscar.
+        region (str, optional): Código de la región para filtrar.
+        comuna (str, optional): Código de la comuna para filtrar.
+
+    Returns:
+        list: Lista de licitaciones encontradas o None si hay error.
+    """
+    if not API_TICKET or API_TICKET == "TU_TICKET_DE_ACCESO":
+        return None
+
+    query_params = {
+        'ticket': API_TICKET,
+        # 'fecha': datetime.now().strftime('%d%m%Y'),
+        # 'estado': 'activas' # u otro estado que te interese
+    }
+
+    if kwargs:
+        for key, value in kwargs.items():
+            if key in ['fecha', 'estado', 'codigoRegion', 'codigoComuna']:
+                query_params.update({key: value})
+
+    try:
+        response = requests.get(BASE_URL_LICITACIONES, params=query_params, timeout=10)
+        print(response.request.path_url)
+        response.raise_for_status()  # Lanza una excepción para errores HTTP (4xx o 5xx)
+        data = response.json()
+
+        founded = []
+        for lic in data.get('Listado', []):
+            name = lic.get('Nombre', '').lower()
+            description = lic.get('Descripcion', '').lower()
+
+            flag = False
+            for kw in keywords:
+                if kw.lower() in name or kw.lower() in description:
+                    flag = True
+                    break
+            
+            if flag:
+                founded.append({
+                    'CodigoExterno': lic.get('CodigoExterno'),
+                    'Nombre': lic.get('Nombre'),
+                    'FechaCierre': lic.get('FechaCierre'),
+                    'Comprador': lic.get('Comprador', {}).get('NombreOrganismo'),
+                })
+        return founded
+
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error en la solicitud HTTP: {e}")
+        if response is not None:
+            print(f"Respuesta del servidor: {response.text}")
+        return None
+    except json.JSONDecodeError:
+        print("Error al decodificar la respuesta JSON.")
+        print(f"Respuesta del servidor: {response.text}")
+        return None
+
+# --- Ejemplo de uso ---
+if __name__ == "__main__":
+        palabras_interes = ["ciclov", "bicicleta", "bici", "plaza" "cicloamigable"]
+        print("\n--- Buscando en todo Chile ---")
+        licitaciones = get_tenders(palabras_interes, **{'estado': 'cerrada'})
+        if licitaciones:
+            print(f"Se encontraron {len(licitaciones)} licitaciones:")
+            for lic in licitaciones:
+                print(f"  ID: {lic['CodigoExterno']}, Nombre: {lic['Nombre']}, Cierre: {lic['FechaCierre']}, Comprador: {lic['Comprador']}")
+        else:
+            print("No se encontraron licitaciones con esos criterios.")

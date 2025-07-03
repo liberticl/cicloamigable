@@ -1,0 +1,4 @@
+
+--- Buscando en todo Chile ---
+/servicios/v1/publico/licitaciones.json?ticket=A711701E-2A77-468E-8D7A-A31C2847C929&estado=cerrada
+No se encontraron licitaciones con esos criterios.
