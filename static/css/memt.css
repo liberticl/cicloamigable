@@ -108,23 +108,6 @@
   transform: translateY(-2px);
 }
 
-/* Versión responsive */
-@media (max-width: 768px) {
-  .city-form {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 90%;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.95);
-  }
-
-  .form-select {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-}
-
 /* TABLAS */
 .table {
   position: absolute;
@@ -141,4 +124,44 @@
   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
   width: 510px;
   transition: all 0.3s ease;
+}
+
+/* Versión responsive */
+@media (max-width: 768px) {
+  .navbar-space {
+    height: 80px;
+  }
+
+  .city-form {
+    position: static;
+    top: auto;
+    right: auto;
+    width: 90%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .form-select {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .map-content {
+    position: static;
+    justify-content: center;
+  }
+
+  .table {
+    position: static;
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  #deck-container {
+    width: 90%;
+    margin-top: 0;
+  }
 }

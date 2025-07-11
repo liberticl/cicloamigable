@@ -6,7 +6,7 @@
     {% include "_head.html" %}
     {% endblock %}
     {{ headers|safe }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/memt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memt.css') }}?v=2">
 </head>
 
 <body>
@@ -19,6 +19,25 @@
         {% block navbar %}
         {% include "_navbar.html" %}
         {% endblock %}
+
+        <div class="navbar-space"></div>
+
+        {% if not city_info %}
+        <div class="table">
+            <b class="table-title">¿Qué es el MEMT?</b>
+            <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                La medicion de eficiencia en modos de transporte es una actividad basada en voluntarios/as que busca
+                determinar los tiempos de
+                traslado en hora punta en diversas ciudades del continente.
+            </p>
+            <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                Esta medición busca generar datos sobre las condiciones de movilidad de los diferentes usuarios, ya sean
+                bicicletas, scooter, skates, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
+                basado en información, activar ,la participacion ciudadana, medios locales y politicos, buscando
+                promover el uso seguro y eficiente del espacio público.
+            </p>
+        </div>
+        {% endif %}
 
         <div class="city-form">
             <form method="get" action="{{ url_for('memt') }}">
@@ -40,7 +59,7 @@
         <div class="table">
             <b class="table-title">Destino: {{ city_info.destiny }}</b>
             <p class="paragraph">(Tiempo medido en {{ city_info.data_unit }})</p>
-            <div>
+            <div class="table-container">
                 <table class="travel-table">
                     <thead>
                         <tr>
@@ -96,21 +115,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-        {% else %}
-        <div class="table">
-            <b class="table-title">¿Qué es el MEMT?</b>
-            <p class="paragraph" style="margin-top: 10px; text-align:justify">
-                La medicion de eficiencia en modos de transporte es una actividad basada en voluntarios/as que busca
-                determinar los tiempos de
-                traslado en hora punta en diversas ciudades del continente.
-            </p>
-            <p class="paragraph" style="margin-top: 10px; text-align:justify">
-                Esta medición busca generar datos sobre las condiciones de movilidad de los diferentes usuarios, ya sean
-                bicicletas, scooter, skates, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
-                basado en información, activar ,la participacion ciudadana, medios locales y politicos, buscando
-                promover el uso seguro y eficiente del espacio público.
-            </p>
         </div>
         {% endif %}
 
