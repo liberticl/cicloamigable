@@ -1,7 +1,7 @@
 # from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import Flask, render_template, url_for, request
-from config import NAVBAR_ITEMS, VLPO_CICLOAMIGABLE, MEMT, get_points
-from utils import create_map, create_memt_map, get_html, get_city_info
+from config import NAVBAR_ITEMS, VLPO_CICLOAMIGABLE, MEMT, FNB, get_points
+from utils import create_map, create_memt_map, create_fnb_map, get_html, get_city_info
 
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ def update_icon_path(point):
 @app.route("/mapa")
 def mapa():
     # base_url = 'https://www.cicloamigable.cl' if PROD else 'http://localhost:5000' # noqa
-    base_url = url_for('static', filename='img/icons')
+    base_url = url_for('static', filename='img')
     points = get_points(VLPO_CICLOAMIGABLE, base_url)
     this_map = create_map(points)
     headers, deckgl = get_html(this_map)
@@ -32,7 +32,7 @@ def mapa():
 
 @app.route("/memt")
 def memt():
-    base_url = url_for('static', filename='img/icons')
+    base_url = url_for('static', filename='img')
     points = get_points(MEMT, base_url)
 
     selected = request.args.get('city', None)
@@ -49,6 +49,20 @@ def memt():
                            cities=cities,
                            selected=selected,
                            city_info=city_info)
+
+
+@app.route("/fnb")
+def fnb():
+    base_url = url_for('static', filename='img')
+    points = get_points(FNB, base_url)
+
+    this_map = create_fnb_map(points)
+    headers, deckgl = get_html(this_map)
+
+    return render_template("fnb.html",
+                           navbar_items=NAVBAR_ITEMS,
+                           headers=headers,
+                           map=deckgl)
 
 
 # @app.route("/presentacion")

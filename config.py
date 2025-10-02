@@ -8,9 +8,72 @@ NAVBAR_ITEMS = [
     {"name": "Proyecto", "url": "/proyecto"},
     {"name": "Mapa", "url": "/mapa"},
     {"name": "MEMT", "url": "/memt"},
+    {"name": "FNB", "url": "/fnb"},
     # {"name": "Actividades", "url": "/actividades"},
 ]
 
+
+FNB = [
+    {
+        "type": "hostal",
+        "name": "Casa Volante Hostal",
+        "logo": "<BASE_URL>/fnb/casa_volante_hostal.png",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.041034, -71.6281573],
+        "description": "<ul><li>Ubicado en Fischer 27, Cerro Alegre, Valparaíso.</li><li>Capacidad para 96 personas.</li><li>A 350 metros de la Plaza Sotomayor.</li></ul>",
+        "details": {
+            "distance": "350 metros",
+            "footer": "Avisar participación en el Foro Nacional de la Bicicleta al reservar",
+            "rooms": [
+                {
+                    "name": "Privada 6/8 personas (Literas, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 14000
+                },
+                {
+                    "name": "Doble Económica (Litera, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 17000
+                },
+                {
+                    "name": "Doble Estándar (Matrimonial/2 Camas, TV, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 20000
+                },
+                {
+                    "name": "Triple Económica (Litera Especial, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 16000
+                },
+                {
+                    "name": "Triple Estándar (Matrimonial + Litera, TV, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 18500
+                },
+                {
+                    "name": "Cuádruple Estándar (Matrimonial + Litera, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 17000
+                },
+                {
+                    "name": "Cama en Compartido 6/8 (Literas, Baño Compartido)",
+                    "detail": "Por persona",
+                    "price": 14000
+                },
+                {
+                    "name": "Desayuno Buffet Diario",
+                    "detail": "Por persona",
+                    "price": 6000
+                }
+            ]
+        }
+    }
+]
 
 VLPO_CICLOAMIGABLE = [
         {
@@ -433,6 +496,8 @@ NOT_USED_HTML = """
 def get_points(points: list, base_url: str):
     points_with_url = []
     for p in points:
-        p['icon']['url'] = p['icon']['url'].replace('<BASE_URL>', base_url)
+        p['icon']['url'] = p['icon']['url'].replace('<BASE_URL>', f"{base_url}/icons")
+        if 'logo' in p.keys():
+            p['logo'] = p['logo'].replace('<BASE_URL>', f"{base_url}/logos")
         points_with_url.append(p)
     return points_with_url

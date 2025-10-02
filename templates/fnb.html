@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    {% block head %}
+    {% include "_head.html" %}
+    {% endblock %}
+    {{ headers|safe }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fnb.css') }}?v=2">
+</head>
+
+<body>
+    <div class="content">
+
+        <a href="/">
+            <img src="{{ url_for('static', filename='img/bikepoint.png') }}" alt="Logo" class="logo">
+        </a>
+
+        {% block navbar %}
+        {% include "_navbar.html" %}
+        {% endblock %}
+
+        <div class="navbar-space"></div>
+
+        <div class="table">
+            <b class="table-title">Sobre el FNB 2025</b>
+            <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                Este foro es un testimonio de la perseverancia de la sociedad civil, que a pesar de las negativas, ha
+                posicionado el ciclismo como una alternativa viable en una ciudad en que se pensaba imposible pedalear.
+            </p>
+        </div>
+
+        <!--  <div class="city-form">
+            <form method="get" action="{{ url_for('memt') }}">
+                <div class="form-group">
+                    <label class="form-label" for="city-selector">Seleccionar lugar</label>
+                    <select class="form-select" id="city-selector" name="city" onchange="this.form.submit()">
+                        <option value="">Todos</option>
+                        {% for city in cities %}
+                        <option value="{{ city }}" {% if selected==city %}selected{% endif %}>
+                            {{ city }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>  -->
+
+        {% if city_info %}
+        <div class="table">
+            <b class="table-title">Destino: {{ city_info.destiny }}</b>
+            <p class="paragraph">(Tiempo medido en {{ city_info.data_unit }})</p>
+            <div class="table-container">
+                <table class="travel-table">
+                    <thead>
+                        <tr>
+                            <th>Modo</th>
+                            {% for route in city_info.measures %}
+                            <th style="text-align: center;">{{ route.place_name }}<br>({{ route.distance }} km)</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bicicleta</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].bike }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Micro o bus</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].bus }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Automóvil</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].car }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Metro o tren</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].train }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Taxi o colectivo</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].taxi }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Motocicleta</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].moto }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>Otros ciclos</td>
+                            {% for measure in city_info.measures %}
+                            <td class="minutes" style="text-align: center;">{{ measure.data[0].cicles }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="map-content">
+            {{ map|safe }}
+        </div>
+    </div>
+</body>

@@ -63,6 +63,11 @@ def get_tabular_memt_data(points):
     return pd.DataFrame(data)
 
 
+def get_fnb_data(points):
+    return {
+        'hostal': [p for p in points if p.get('type') == 'hostal']
+    }
+
 def create_map(points):
     middle = get_middle_point(points)
     layer = pdk.Layer(
@@ -222,6 +227,59 @@ def create_memt_map(points, city=None):
             """,
             "style": {
                 "text-align": "center",
+                "backgroundColor": "rgb(255,255,255,0.7)",
+                "padding": "10px",
+                "borderRadius": "1.5rem",
+                "boxShadow": "0 2px 10px rgba(0,0,0,0.2)"
+            }
+        }
+    )
+    return r.to_html(as_string=True)
+
+
+def create_fnb_map(points):
+    fnb_data = get_fnb_data(points)
+    hostals = fnb_data.get('hostal', [])
+
+    middle = [-33.0390271, -71.6292013]  # Plaza Sotomayor
+    zoom_level = 15
+
+    hostals_layer = pdk.Layer(
+        "IconLayer",
+        data=hostals,
+        get_icon="icon",
+        get_size=5,
+        size_scale=10,
+        get_position=["coordinates[1]", "coordinates[0]"],
+        pickable=True,
+    )
+
+    view_state = pdk.ViewState(
+        longitude=middle[1],
+        latitude=middle[0],
+        zoom=zoom_level,
+    )
+
+    r = pdk.Deck(
+        layers=[hostals_layer], #, travel_layer],
+        initial_view_state=view_state,
+        map_style="light",
+        height="500px",
+        width="100%",
+        tooltip={
+            "html": """
+                <div id="tooltip">
+                    <div style='text-align: center'>
+                        <img src={logo} alt={name} style='width: 200px'>
+                    </div>
+                    <div style='margin-top: 4px; font-size: 14px; color: #222; margin-left: 25px'>
+                        {description}
+                    </div>
+                </div>
+            """,
+            "style": {
+                "width": "370px",
+                "text-align": "left",
                 "backgroundColor": "rgb(255,255,255,0.7)",
                 "padding": "10px",
                 "borderRadius": "1.5rem",
