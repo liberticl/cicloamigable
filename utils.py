@@ -237,16 +237,28 @@ def create_memt_map(points, city=None):
     return r.to_html(as_string=True)
 
 
-def create_fnb_map(points):
-    fnb_data = get_fnb_data(points)
-    hostals = fnb_data.get('hostal', [])
+def get_fnb_services_types(points):
+    return list(set(p.get('type') for p in points if p.get('type')))
 
+
+def get_service_info(selected, points):
+    if not selected or selected == 'all':
+        return points
+
+    types = get_fnb_services_types(points)
+    if selected in types:
+        return [p for p in points if selected == p.get('type')]
+    else:
+        return [p for p in points if selected == p.get('name')]
+
+
+def create_fnb_map(points):
     middle = [-33.0390271, -71.6292013]  # Plaza Sotomayor
     zoom_level = 15
 
     hostals_layer = pdk.Layer(
         "IconLayer",
-        data=hostals,
+        data=points,
         get_icon="icon",
         get_size=5,
         size_scale=10,
@@ -270,7 +282,7 @@ def create_fnb_map(points):
             "html": """
                 <div id="tooltip">
                     <div style='text-align: center'>
-                        <img src={logo} alt={name} style='width: 200px'>
+                        <img src={logo} alt={name} style="{logo_style}">
                     </div>
                     <div style='margin-top: 4px; font-size: 14px; color: #222; margin-left: 25px'>
                         {description}

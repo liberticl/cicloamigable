@@ -12,12 +12,13 @@ NAVBAR_ITEMS = [
     # {"name": "Actividades", "url": "/actividades"},
 ]
 
-
+FNB_TYPES = ['Estadía', 'FNB', 'Gastronomía']
 FNB = [
     {
-        "type": "hostal",
+        "type": "Estadía",
         "name": "Casa Volante Hostal",
         "logo": "<BASE_URL>/fnb/casa_volante_hostal.png",
+        "logo_style": "width: 200px;",
         "icon": {
             "url": "<BASE_URL>/fnb/hostal.png",
             "width": 350,
@@ -27,48 +28,79 @@ FNB = [
         "coordinates": [-33.041034, -71.6281573],
         "description": "<ul><li>Ubicado en Fischer 27, Cerro Alegre, Valparaíso.</li><li>Capacidad para 96 personas.</li><li>A 350 metros de la Plaza Sotomayor.</li></ul>",
         "details": {
-            "distance": "350 metros",
-            "footer": "Avisar participación en el Foro Nacional de la Bicicleta al reservar",
+            "footer": [
+                "Todos los precios son por persona.",
+                "Avisar participación en el Foro Nacional de la Bicicleta al reservar."
+            ],
             "rooms": [
                 {
-                    "name": "Privada 6/8 personas (Literas, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Privada 6/8 personas (Literas, baño compartido)",
                     "price": 14000
                 },
                 {
-                    "name": "Doble Económica (Litera, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Doble Económica (Litera, baño compartido)",
                     "price": 17000
                 },
                 {
-                    "name": "Doble Estándar (Matrimonial/2 Camas, TV, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Doble Estándar (Matrimonial/2 camas, TV, baño compartido)",
                     "price": 20000
                 },
                 {
-                    "name": "Triple Económica (Litera Especial, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Triple Económica (Litera especial, baño compartido)",
                     "price": 16000
                 },
                 {
-                    "name": "Triple Estándar (Matrimonial + Litera, TV, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Triple Estándar (Matrimonial + litera, TV, baño compartido)",
                     "price": 18500
                 },
                 {
-                    "name": "Cuádruple Estándar (Matrimonial + Litera, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Cuádruple Estándar (Matrimonial + litera, baño compartido)",
                     "price": 17000
                 },
                 {
-                    "name": "Cama en Compartido 6/8 (Literas, Baño Compartido)",
-                    "detail": "Por persona",
+                    "name": "Compartida 6/8 (Literas, baño compartido)",
                     "price": 14000
                 },
                 {
                     "name": "Desayuno Buffet Diario",
-                    "detail": "Por persona",
                     "price": 6000
+                }
+            ]
+        }
+    },
+    {
+        "type": "FNB",
+        "name": "Mercado Puerto",
+        "logo": "<BASE_URL>/fnb/mercado_puerto.png",
+        "logo_style": "width: 80px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/fnb.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.035846, -71.630126],
+        "description": "<b>Actividades en este espacio</b>:<br><ul><li>Inauguración del FNB 2025.</li><li>Fiesta de Halloween.</li><li>Asamblea Nacional Ciclista.</li></ul>",
+        "details": {
+            "footer": [
+                "Los horarios de los eventos pueden cambiar.",
+                "Verificar <a href='https://fnb.cl' target='_blank'>programa</a>."
+            ],
+            "activities": [
+                {
+                    "name": "Inauguración del Foro Nacional",
+                    "day": "Jueves 30 de octubre",
+                    "time": "18:00 horas"
+                },
+                {
+                    "name": "Fiesta de Halloween",
+                    "day": "Viernes 31 de octubre",
+                    "time": "21:30 horas"
+                },
+                {
+                    "name": "Asamblea Nacional Ciclista",
+                    "day": "Domingo 02 de noviembre",
+                    "time": "10:00 horas"
                 }
             ]
         }

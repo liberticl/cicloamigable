@@ -1,7 +1,8 @@
 # from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import Flask, render_template, url_for, request
 from config import NAVBAR_ITEMS, VLPO_CICLOAMIGABLE, MEMT, FNB, get_points
-from utils import create_map, create_memt_map, create_fnb_map, get_html, get_city_info
+from utils import (create_map, create_memt_map, create_fnb_map, get_html,
+                   get_city_info, get_fnb_services_types, get_service_info)
 
 
 app = Flask(__name__)
@@ -55,14 +56,35 @@ def memt():
 def fnb():
     base_url = url_for('static', filename='img')
     points = get_points(FNB, base_url)
+    types = get_fnb_services_types(points)
 
-    this_map = create_fnb_map(points)
+    selected = request.args.get('service', None)
+    to_show = get_service_info(selected, points)
+
+    this_map = create_fnb_map(to_show)
     headers, deckgl = get_html(this_map)
 
+    info = None
+    footer = None
+    if selected not in types and selected and selected != 'all':
+        if to_show:
+            footer = to_show[0].get('details', {}).get('footer', [])
+            rooms = to_show[0].get('details', {}).get('rooms', [])
+            activities = to_show[0].get('details', {}).get('activities', [])
+            if rooms:
+                info = ['hostal', rooms]
+            if activities:
+                info = ['fnb', activities]
+
+    services = {t: [p['name'] for p in points if p['type'] == t] for t in types}  # noqa
     return render_template("fnb.html",
                            navbar_items=NAVBAR_ITEMS,
                            headers=headers,
-                           map=deckgl)
+                           map=deckgl,
+                           services=services,
+                           selected=selected,
+                           info=info,
+                           footer=footer)
 
 
 # @app.route("/presentacion")

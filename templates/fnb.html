@@ -22,90 +22,92 @@
 
         <div class="navbar-space"></div>
 
-        <div class="table">
+        {% if not info %}
+        <div class="table" style="margin-top: 15px;">
             <b class="table-title">Sobre el FNB 2025</b>
-            <p class="paragraph" style="margin-top: 10px; text-align:justify">
+            <p style="margin-top: 10px; text-align:justify">
                 Este foro es un testimonio de la perseverancia de la sociedad civil, que a pesar de las negativas, ha
                 posicionado el ciclismo como una alternativa viable en una ciudad en que se pensaba imposible pedalear.
             </p>
         </div>
+        {% endif %}
 
-        <!--  <div class="city-form">
-            <form method="get" action="{{ url_for('memt') }}">
+        <div class="service-form">
+            <form method="get" action="{{ url_for('fnb') }}">
                 <div class="form-group">
-                    <label class="form-label" for="city-selector">Seleccionar lugar</label>
-                    <select class="form-select" id="city-selector" name="city" onchange="this.form.submit()">
-                        <option value="">Todos</option>
-                        {% for city in cities %}
-                        <option value="{{ city }}" {% if selected==city %}selected{% endif %}>
-                            {{ city }}
+                    <label class="form-label" for="service-selector">Seleccione una opción</label>
+                    <select class="form-select" id="service-selector" name="service" onchange="this.form.submit()">
+                        <option value="all">Todos</option>
+                        {% for type, service in services.items() %}
+                        <option label="{{ type }}" class="type-label" {%if selected==type %}selected{% endif %}>
+                            {{ type }}
                         </option>
+
+                        {% for s in service %}
+                        <option value="{{ s }}" {% if selected==s %}selected{% endif %}>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ s }}
+                        </option>
+                        {% endfor %}
                         {% endfor %}
                     </select>
                 </div>
             </form>
-        </div>  -->
+        </div>
 
-        {% if city_info %}
+        {% if info %}
         <div class="table">
-            <b class="table-title">Destino: {{ city_info.destiny }}</b>
-            <p class="paragraph">(Tiempo medido en {{ city_info.data_unit }})</p>
+            {% if info.0 == 'hostal' %}
             <div class="table-container">
-                <table class="travel-table">
+                <table class="info-table">
                     <thead>
                         <tr>
-                            <th>Modo</th>
-                            {% for route in city_info.measures %}
-                            <th style="text-align: center;">{{ route.place_name }}<br>({{ route.distance }} km)</th>
-                            {% endfor %}
+                            <th>Habitación</th>
+                            <th>Precio</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for i in info.1 %}
                         <tr>
-                            <td>Bicicleta</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].bike }}</td>
-                            {% endfor %}
+                            <td>
+                                {{ i.name | replace(' (', '<br><span class="detail-small">') | replace(')', '</span>')
+                                | safe }}
+                            </td>
+                            <td>
+                                CLP ${{ "{:,.0f}".format(i.price).replace(",", ".") }}
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Micro o bus</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].bus }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <td>Automóvil</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].car }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <td>Metro o tren</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].train }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <td>Taxi o colectivo</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].taxi }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <td>Motocicleta</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].moto }}</td>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            <td>Otros ciclos</td>
-                            {% for measure in city_info.measures %}
-                            <td class="minutes" style="text-align: center;">{{ measure.data[0].cicles }}</td>
-                            {% endfor %}
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
+            {% elif info.0 == 'fnb' %}
+            <div class="table-container">
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Actividad</th>
+                            <th>Día</th>
+                            <th>Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in info.1 %}
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.day }}</td>
+                            <td>{{ i.time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+
+            {% if footer %}
+            {% for text in footer %}
+            <p class="paragraph">{{ text | safe }}</p>
+            {% endfor %}
+            {% endif %}
         </div>
         {% endif %}
 

@@ -14,7 +14,42 @@
   color: #364955;
 }
 
+.info-table {
+  width: 100%;
+  max-width: 500px;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.info-table thead tr {
+  background-color: #21177071;
+  /* background: linear-gradient(to right, #00d2ff, #36a9e0); */
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.info-table th,
+.info-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.info-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.info-table tbody tr:hover {
+  background-color: rgba(54, 73, 85,0.25);
+}
+
 .paragraph {
+  margin-bottom: 0%;
   font-weight: 150;
   font-size: 15px;
   color: #364955;
@@ -28,7 +63,7 @@
 }
 
 /* Formulario de selección de comunas */
-.city-form {
+.service-form {
   position: absolute;
   left: 2%;
   top: 12%;
@@ -45,7 +80,7 @@
   /* transition: all 0.3s ease; */
 }
 
-/* .city-form:hover {
+/* .service-form:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   } */
 
@@ -59,6 +94,14 @@
   font-size: 18px;
   color: #364955;
   margin-bottom: 10px;
+}
+
+.type-label {
+  font-weight: bold;
+}
+
+.detail-small {
+  font-size: small;
 }
 
 .form-select {
@@ -112,7 +155,7 @@
 .table {
   position: absolute;
   left: 2%;
-  top: 10%;
+  top: 21%;
   /* width: 95%; */
   max-width: 100%;
   margin: 0 auto;
@@ -122,7 +165,7 @@
   padding: 20px;
   /* border-radius: 15px; */
   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
-  width: 510px;
+  width: 500px;
   transition: all 0.3s ease;
 }
 
@@ -132,13 +175,12 @@
     height: 80px;
   }
 
-  .city-form {
+  .service-form {
     position: static;
     top: auto;
     right: auto;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
   }
 
   .form-select {
@@ -161,7 +203,8 @@
   }
 
   #deck-container {
-    width: 90%;
+    width: 80vw;
+    height: 30vh;
     margin-top: 0;
   }
 }
