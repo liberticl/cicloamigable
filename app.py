@@ -71,12 +71,16 @@ def fnb():
             footer = to_show[0].get('details', {}).get('footer', [])
             rooms = to_show[0].get('details', {}).get('rooms', [])
             activities = to_show[0].get('details', {}).get('activities', [])
+            efe = [to_show[0].get('name', ''), to_show[0].get('coordinates', [0,0])]
             if rooms:
                 info = ['hostal', rooms]
             if activities:
                 info = ['fnb', activities]
+            if efe:
+                info = ['efe', efe]
 
     services = {t: [p['name'] for p in points if p['type'] == t] for t in types}  # noqa
+    services = dict(reversed(services.items()))
     return render_template("fnb.html",
                            navbar_items=NAVBAR_ITEMS,
                            headers=headers,

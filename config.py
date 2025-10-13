@@ -12,7 +12,7 @@ NAVBAR_ITEMS = [
     # {"name": "Actividades", "url": "/actividades"},
 ]
 
-FNB_TYPES = ['Estadía', 'FNB', 'Gastronomía']
+FNB_TYPES = ['Estadía', 'FNB', 'Gastronomía', 'EFE']
 FNB = [
     {
         "type": "Estadía",
@@ -103,6 +103,406 @@ FNB = [
                     "time": "10:00 horas"
                 }
             ]
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Puerto",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Puerto"
+        },
+        "coordinates": [
+            -33.038889,
+            -71.626389
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Bellavista",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Bellavista"
+        },
+        "coordinates": [
+            -33.043056,
+            -71.620833
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Francia",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Francia"
+        },
+        "coordinates": [
+            -33.043889,
+            -71.612778
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Barón",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Barón"
+        },
+        "coordinates": [
+            -33.042222,
+            -71.605556
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Portales",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Portales"
+        },
+        "coordinates": [
+            -33.032778,
+            -71.591667
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Recreo",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Recreo"
+        },
+        "coordinates": [
+            -33.027222,
+            -71.575833
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Miramar",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Miramar"
+        },
+        "coordinates": [
+            -33.025,
+            -71.561667
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Viña del Mar",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Viña del Mar"
+        },
+        "coordinates": [
+            -33.026389,
+            -71.552222
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Hospital",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Hospital"
+        },
+        "coordinates": [
+            -33.028889,
+            -71.541667
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Chorrillos",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Chorrillos"
+        },
+        "coordinates": [
+            -33.033333,
+            -71.532778
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "El Salto",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "El Salto"
+        },
+        "coordinates": [
+            -33.041111,
+            -71.521389
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Quilpué",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Quilpué"
+        },
+        "coordinates": [
+            -33.045278,
+            -71.445
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "El Sol",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "El Sol"
+        },
+        "coordinates": [
+            -33.039722,
+            -71.428611
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "El Belloto",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "El Belloto"
+        },
+        "coordinates": [
+            -33.046389,
+            -71.407222
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Las Américas",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Las Américas"
+        },
+        "coordinates": [
+            -33.043889,
+            -71.395
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "La Concepción",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "La Concepción"
+        },
+        "coordinates": [
+            -33.041667,
+            -71.382222
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Villa Alemana",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Villa Alemana"
+        },
+        "coordinates": [
+            -33.0425,
+            -71.373611
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Sargento Aldea",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Sargento Aldea"
+        },
+        "coordinates": [
+            -33.041944,
+            -71.366111
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Peñablanca",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Peñablanca"
+        },
+        "coordinates": [
+            -33.040278,
+            -71.352778
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        }
+    },
+    {
+        "type": "EFE",
+        "name": "Limache",
+        "description": "<b>Información general</b>:<br><ul><li>Podrás subir la bicicleta durante el foro.</li><li>Se puede pagar con tarjeta de débito.</li><li>Servicio nocturno de buses cada una hora.</li></ul>",
+        "logo": "<BASE_URL>/fnb/efe.svg",
+        "logo_style": "width: 150px;",
+        "details": {
+            "name": "Limache"
+        },
+        "coordinates": [
+            -32.984444,
+            -71.2775
+        ],
+        "icon": {
+            "url": "<BASE_URL>/fnb/efe.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
         }
     }
 ]

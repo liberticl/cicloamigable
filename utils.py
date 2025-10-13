@@ -253,7 +253,7 @@ def get_service_info(selected, points):
 
 
 def create_fnb_map(points):
-    middle = [-33.0390271, -71.6292013]  # Plaza Sotomayor
+    middle = [-33.0390271, -71.6292013] if len(get_fnb_services_types(points)) > 1 else get_middle_point(points)
     zoom_level = 15
 
     hostals_layer = pdk.Layer(
