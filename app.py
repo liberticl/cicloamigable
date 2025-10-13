@@ -66,12 +66,14 @@ def fnb():
 
     info = None
     footer = None
+    coords = None
     if selected not in types and selected and selected != 'all':
         if to_show:
+            coords = to_show[0].get('coordinates', [0,0])
             footer = to_show[0].get('details', {}).get('footer', [])
             rooms = to_show[0].get('details', {}).get('rooms', [])
             activities = to_show[0].get('details', {}).get('activities', [])
-            efe = [to_show[0].get('name', ''), to_show[0].get('coordinates', [0,0])]
+            efe = to_show[0].get('name', '') if to_show[0].get('type') == 'EFE' else None
             if rooms:
                 info = ['hostal', rooms]
             if activities:
@@ -79,6 +81,7 @@ def fnb():
             if efe:
                 info = ['efe', efe]
 
+    print(info[0] if isinstance(info, list) else 'nada')
     services = {t: [p['name'] for p in points if p['type'] == t] for t in types}  # noqa
     services = dict(reversed(services.items()))
     return render_template("fnb.html",
@@ -88,6 +91,7 @@ def fnb():
                            services=services,
                            selected=selected,
                            info=info,
+                           coords = coords,
                            footer=footer)
 
 

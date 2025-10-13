@@ -104,7 +104,7 @@
             {% elif info.0 == 'efe' %}
             <br>
             <div class="table-container">
-                <b class="table-title">ESTACIÓN {{ info.1.0 | upper}}</b>
+                <b class="table-title">ESTACIÓN {{ info.1 | upper}}</b>
                 <p class="paragraph" style="margin-top: 12px; text-align:justify">
                     <b style="font-weight: bold">Apertura boletería</b>: 07:00 horas.<br>
                     <b style="font-weight: bold">Cierre boletería</b>: 23:30 horas<br>
@@ -120,10 +120,6 @@
                         Hay un servicio nocturno con buses cada una hora.
                     </li>
                 </ul>
-                <br>
-                <p>
-                    <a href="https://www.google.com/maps?q={{ info.1.1.0 }},{{ info.1.1.1 }}" target="_blank"><b>Ver en Google Maps</b></a>
-                </p>
             </div>
             {% endif %}
 
@@ -131,6 +127,14 @@
             {% for text in footer %}
             <p class="paragraph">{{ text | safe }}</p>
             {% endfor %}
+            {% endif %}
+
+            {% if coords %}
+            <br>
+            <p class="paragraph" style="margin-top: 12px; font-weight: bold">
+                <a href="https://www.google.com/maps?q={{ coords.0 }},{{ coords.1 }}" target="_blank">Ver en
+                    Google Maps</a>
+            </p>
             {% endif %}
         </div>
         {% endif %}
