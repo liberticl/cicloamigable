@@ -85,6 +85,10 @@ def fnb():
             if to_show[0].get('type') == 'EFE':
                 if efe:
                     info = ['efe', efe]
+            
+            if to_show[0].get('type') == 'Gastronomía':
+                if conditions:
+                    info = ['discount', conditions]
 
             if activities:
                 info = ['fnb', activities]
