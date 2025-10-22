@@ -282,7 +282,7 @@ def create_fnb_map(points):
             "html": """
                 <div id="tooltip">
                     <div style='text-align: center'>
-                        <img src={logo} alt={name} style="{logo_style}">
+                        <h3 style="color: #222">{name}</h3>
                     </div>
                     <div style='margin-top: 4px; font-size: 14px; color: #222; margin-left: 25px'>
                         {description}

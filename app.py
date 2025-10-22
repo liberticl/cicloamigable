@@ -72,16 +72,23 @@ def fnb():
             coords = to_show[0].get('coordinates', [0,0])
             footer = to_show[0].get('details', {}).get('footer', [])
             rooms = to_show[0].get('details', {}).get('rooms', [])
+            conditions = to_show[0].get('details', {}).get('conditions', {})
             activities = to_show[0].get('details', {}).get('activities', [])
-            efe = to_show[0].get('name', '') if to_show[0].get('type') == 'EFE' else None
-            if rooms:
-                info = ['hostal', rooms]
+            efe = to_show[0].get('name', '')
+
+            if to_show[0].get('type') == 'Estadía':
+                if rooms:
+                    info = ['hostal', rooms]
+                elif conditions:
+                    info = ['discount', conditions]
+
+            if to_show[0].get('type') == 'EFE':
+                if efe:
+                    info = ['efe', efe]
+
             if activities:
                 info = ['fnb', activities]
-            if efe:
-                info = ['efe', efe]
 
-    print(info[0] if isinstance(info, list) else 'nada')
     services = {t: [p['name'] for p in points if p['type'] == t] for t in types}  # noqa
     services = dict(reversed(services.items()))
     return render_template("fnb.html",

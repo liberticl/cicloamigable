@@ -504,6 +504,566 @@ FNB = [
             "height": 350,
             "anchorY": 350
         }
+    },
+    {
+        "type": "Estadía",
+        "name": "Augusta Apart Hotel",
+        "logo": "<BASE_URL>/fnb/hostal.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043839, -71.629293],
+        "description": "<ul><li>Ubicado en San Enrique 577, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "San Enrique 577",
+                "phone_1": "+56322525175",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.augustavalparaiso.com",
+                "instagram": "augustavalparaiso"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "AYCA La Flora Hotel Boutique",
+        "logo": "<BASE_URL>/fnb/ayca_la_flora.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.041935, -71.625451],
+        "description": "<ul><li>Ubicado en Subida Concepción 35, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Subida Concepción 35",
+                "phone_1": "+56322212775",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.laflora-valpo.com",
+                "instagram": "aykalaflora.valparaiso"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "CasaBlu",
+        "logo": "<BASE_URL>/fnb/casa_blu.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.042778, -71.630198],
+        "description": "<ul><li>Ubicado en San Enrique 387, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "San Enrique 387",
+                "phone_1": "+56229441402",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.casablu.cl",
+                "instagram": "casablu.hotel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Casa Galos Hotel & Lofts",
+        "logo": "<BASE_URL>/fnb/casa_galos.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043875, -71.630115],
+        "description": "<ul><li>Ubicado en Templeman 893, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Templeman 893",
+                "phone_1": "+56322112633",
+                "phone_2": "+56962705458",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.casagalos.cl",
+                "instagram": "casagalos"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Casa Puente Hotel Boutique",
+        "logo": "<BASE_URL>/fnb/casa_puente.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.042776, -71.631146],
+        "description": "<ul><li>Ubicado en San Agustín 552, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "San Agustín 552",
+                "phone_1": "+56995386025",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.casapuente.cl",
+                "instagram": "casapuente_artwinehotel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Casa Vander Valparaiso, Cerro Alegre Hotel Boutique",
+        "logo": "<BASE_URL>/fnb/casa_wander.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043810, -71.626872],
+        "description": "<ul><li>Ubicado en P.º Dimalow 135, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "P.º Dimalow 135",
+                "phone_1": "+56323327662",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.casawander.cl",
+                "instagram": "casawanderhotelboutique"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Fauna Hotel & Restaurante",
+        "logo": "<BASE_URL>/fnb/hotel_fauna.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043774, -71.626955],
+        "description": "<ul><li>Ubicado en P.º Dimalow 166, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "P.º Dimalow 166",
+                "phone_1": "+56323370719",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.faunahotel.cl",
+                "instagram": "faunahotel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Boutique Acontraluz",
+        "logo": "<BASE_URL>/fnb/hotel_acontraluz.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043311, -71.629720],
+        "description": "<ul><li>Ubicado en San Enrique 473, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "San Enrique 473",
+                "phone_1": "+56322511328",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.hotelacontraluz.cl",
+                "instagram": "acontraluz_hotelboutique"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Casa Higueras",
+        "logo": "<BASE_URL>/fnb/hotel_casa_higueras.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.040651, -71.630828],
+        "description": "<ul><li>Ubicado en Higuera 133, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Higuera 133",
+                "phone_1": "+56322497800",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.casahigueras.cl",
+                "instagram": "casahigueras"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Gervasoni",
+        "logo": "<BASE_URL>/fnb/hotel_gervasoni.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.041112, -71.626971],
+        "description": "<ul><li>Ubicado en Paseo Gervasoni Nº1, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Paseo Gervasoni Nº1",
+                "phone_1": "+56322110438",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.hotelgervasoni.cl",
+                "instagram": "hotelgervasoni"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Casa Somerscales",
+        "logo": "<BASE_URL>/fnb/hotel_somerscales.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043234, -71.630078],
+        "description": "<ul><li>Ubicado en San Enrique 446, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "San Enrique 446",
+                "phone_1": "+56322331006",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.hotelsomerscales.cl",
+                "instagram": "hotelsomerscales"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Puerto natura",
+        "logo": "<BASE_URL>/fnb/puerto_natura.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.052812, -71.622424],
+        "description": "<ul><li>Ubicado en Héctor Calvo 850, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Héctor Calvo 850",
+                "phone_1": "+56981956021",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.puertonatura.cl",
+                "instagram": "puertonaturahotel.spa"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Manoir Atkinson",
+        "logo": "<BASE_URL>/fnb/manor_atkinson.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.042765, -71.625312],
+        "description": "<ul><li>Ubicado en P.º Atkinson 165, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "P.º Atkinson 165",
+                "phone_1": "+56322754257",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.hotelatkinson.cl",
+                "instagram": "hotelmanoiratkinson"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Ultramar Restaurant boutique",
+        "logo": "<BASE_URL>/fnb/hotel_ultramar.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.048822, -71.632432],
+        "description": "<ul><li>Ubicado en José Joaquín Pérez 173, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "José Joaquín Pérez 173",
+                "phone_1": "+56322210000",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.hotelultramar.com",
+                "instagram": "hotelultramarvalparaiso"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Verso Hotel",
+        "logo": "<BASE_URL>/fnb/hostal.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.053220, -71.621240],
+        "description": "<ul><li>Ubicado en Mena 665, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Mena 665",
+                "phone_1": "+5622495774",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.versohotel.cl",
+                "instagram": "versohotel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Zerohotel",
+        "logo": "<BASE_URL>/fnb/hostal.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.042079, -71.629784],
+        "description": "<ul><li>Ubicado en Lautaro Rosas 343, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Lautaro Rosas 343",
+                "phone_1": "+56322111313",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.zerohotel.com",
+                "instagram": "zerohotel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Boutique 17",
+        "logo": "<BASE_URL>/fnb/hotel_17.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.041930, -71.626404],
+        "description": "<ul><li>Ubicado en Papudo 557, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Papudo 557",
+                "phone_1": "+56323327295",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.hotel17.cl",
+                "instagram": "hotelboutique17"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Bo Hotel & Terraza",
+        "logo": "<BASE_URL>/fnb/hotel_bo.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.044268, -71.630165],
+        "description": "<ul><li>Ubicado en Almte. Montt 677, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Almte. Montt 677",
+                "phone_1": "+56233564260",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.bohotel.cl",
+                "instagram": "bohotel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Fortunata Chacana Guest House",
+        "logo": "<BASE_URL>/fnb/fortunata_chacana.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.027950, -71.633515],
+        "description": "<ul><li>Ubicado en Waddington 270, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Waddington 270",
+                "phone_1": "+56322801746",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.fortunatachacana.cl",
+                "instagram": "fortunatachacana"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "New Voga Hotel Boutique",
+        "logo": "<BASE_URL>/fnb/hostal.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.043454, -71.630514],
+        "description": "<ul><li>Ubicado en Galos 435, Valparaíso.</li><li>Descuento: 20% según disponibilidad.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Galos 435",
+                "phone_1": "+56992547852",
+                "phone_2": "",
+                "discount": "20% de descuento según disponibilidad",
+                "url": "www.newboga.cl",
+                "instagram": "newboga"
+            }
+        }
     }
 ]
 
@@ -928,7 +1488,8 @@ NOT_USED_HTML = """
 def get_points(points: list, base_url: str):
     points_with_url = []
     for p in points:
-        p['icon']['url'] = p['icon']['url'].replace('<BASE_URL>', f"{base_url}/icons")
+        p['icon']['url'] = p['icon']['url'].replace(
+            '<BASE_URL>', f"{base_url}/icons")
         if 'logo' in p.keys():
             p['logo'] = p['logo'].replace('<BASE_URL>', f"{base_url}/logos")
         points_with_url.append(p)

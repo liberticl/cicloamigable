@@ -121,6 +121,28 @@
                     </li>
                 </ul>
             </div>
+            {% elif info.0 == 'discount' %}
+            <br>
+            <div class="table-container">
+                <b class="table-title">{{ info.1.discount | upper}}</b>
+                <b class="table-title">{{ info.1.direction}}, Valparaíso</b>
+                <p class="paragraph" style="margin-top: 12px; text-align:justify">
+                    {% if info.1.phone_2 %}
+                    <b style="font-weight: bold">Teléfono 1</b>: {{ info.1.phone_1 }}<br>
+                    <b style="font-weight: bold">Teléfono 2</b>: {{ info.1.phone_2 }}<br>
+                    {% else %}
+                    <b style="font-weight: bold">Teléfono</b>: {{ info.1.phone_1 }}<br>
+                    {% endif %}
+                    <b style="font-weight: bold">Apertura boletería</b>: 07:00 horas.<br>
+                    <br>
+                    <b style="font-weight: bold">Sitio web</b>:
+                    <a href="https://{{ info.1.url }}" target="_blank">{{ info.1.url }}</a><br>
+                    <b style="font-weight: bold">Instagram</b>:
+                    <a href="https://www.instagram.com/{{ info.1.instagram }}/" target="_blank">@{{ info.1.instagram
+                        }}</a><br>
+                </p>
+                <br>
+            </div>
             {% endif %}
 
             {% if footer %}
