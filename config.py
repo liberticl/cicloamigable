@@ -1116,6 +1116,454 @@ FNB = [
                 "instagram": "newboga"
             }
         }
+    },
+    {
+        "type": "Estadía",
+        "name": "Casa Club Hostel",
+        "logo": "<BASE_URL>/fnb/casa_club_hostel.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.029755, -71.631810],
+        "description": "<ul><li>Ubicado en Pedro Leon Gallo 427, Valparaíso, Chile.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Pedro Leon Gallo 427, Valparaíso, Chile",
+                "phone_1": "+56 9 7358 5799",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "casaclub-hostel.valparaiso-hotels.com/es/",
+                "instagram": "casaclubhostel"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal El Rincon Marino",
+        "logo": "<BASE_URL>/fnb/hostal_el_rincon_marino.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.047950, -71.611270],
+        "description": "<ul><li>Ubicado en San Ignacio 454 Valparaiso, Valparaíso, Chile.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "San Ignacio 454 Valparaiso, Valparaíso, Chile",
+                "phone_1": "+56 9 7497 1909",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "elrinconmarino.cl",
+                "instagram": "hostalelrinconmarino"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Residencia En El Cerro Bed And Breakfast",
+        "logo": "<BASE_URL>/fnb/residencia_en_el_cerro_bed_and_breakfast.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.042124, -71.627880],
+        "description": "<ul><li>Ubicado en Pierre Loti 51, Cerro Concepción Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Pierre Loti 51, Cerro Concepción Valparaíso",
+                "phone_1": "+56 32 249 5298",
+                "phone_2": "+56 9 8776 0993",
+                "discount": "15% de descuento",
+                "url": "residenciaenelcerro.cl",
+                "instagram": "residenciaenelcerro"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal Mirenart",
+        "logo": "<BASE_URL>/fnb/hostal_mirenart.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.053851, -71.617052],
+        "description": "<ul><li>Ubicado en Calle 13 Nº210 cerro Monjas, Valparaiso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Calle 13 Nº210 cerro Monjas, Valparaiso",
+                "phone_1": "+56 32 332 2178",
+                "phone_2": "+56 9 7698 3434",
+                "discount": "15% de descuento",
+                "url": "hostalmirenart.cl",
+                "instagram": "mirenarthostal"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal De Colores",
+        "logo": "<BASE_URL>/fnb/hostal_de_colores.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.047288, -71.628616],
+        "description": "<ul><li>Ubicado en Cumming 603, Valparaíso, Cerro Carcel, Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Cumming 603, Valparaíso, Cerro Carcel, Valparaíso",
+                "phone_1": "+56 9 9421 2450",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "hostaldecolores.cl",
+                "instagram": "decolores_hostal"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Camila 109 Bed And Breakfast",
+        "logo": "<BASE_URL>/fnb/camila_109_bed_and_breakfast.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.048851, -71.629303],
+        "description": "<ul><li>Ubicado en Calle Camila Nº 109 – Cerro La Loma (Avenida Alemania altura 5600) – Valparaiso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Calle Camila Nº 109 – Cerro La Loma (Avenida Alemania altura 5600) – Valparaiso",
+                "phone_1": "+56 32 249 1746",
+                "phone_2": "+56 9 5197 8377",
+                "discount": "15% de descuento",
+                "url": "camila109.cl",
+                "instagram": "camila109bb"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "El Mirador Bed And Breakfast",
+        "logo": "<BASE_URL>/fnb/el_mirador_bed_and_breakfast.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.032443, -71.637768],
+        "description": "<ul><li>Ubicado en Levarte 251 Cerro Playa Ancha, Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Levarte 251 Cerro Playa Ancha, Valparaíso",
+                "phone_1": "+56 32 234 5937",
+                "phone_2": "+56 9 9733 3347",
+                "discount": "15% de descuento",
+                "url": "elmiradordevalparaiso.cl",
+                "instagram": "el.miradorbb"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal Recuerdos De Familia",
+        "logo": "<BASE_URL>/fnb/hostal_recuerdos_de_familia.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.030952, -71.630483],
+        "description": "<ul><li>Ubicado en Taqueadero 502 playa ancha Nº499, Valparaiso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Taqueadero 502 playa ancha Nº499, Valparaiso",
+                "phone_1": "+56 32 249 7909",
+                "phone_2": "+56 9 9324 4132",
+                "discount": "15% de descuento",
+                "url": "recuerdosdefamilia.com",
+                "instagram": "recuerdosdefamiliavalpo"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal El Viajero",
+        "logo": "<BASE_URL>/fnb/hostal_el_viajero.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.033896, -71.631813],
+        "description": "<ul><li>Ubicado en Avenida Carampangue135-131, Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Avenida Carampangue135-131, Valparaíso",
+                "phone_1": "+56 9 5735 3512",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "hostaldelviajero.cl",
+                "instagram": "hostal.delviajero"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Apart Hotel Comarca Valparaiso",
+        "logo": "<BASE_URL>/fnb/apart_hotel_comarca_valparaiso.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hotel.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.049198, -71.627021],
+        "description": "<ul><li>Ubicado en AVENIDA SAN JUAN DE DIOS 601, VALPARAÍSO.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "AVENIDA SAN JUAN DE DIOS 601, VALPARAÍSO",
+                "phone_1": "+56 32 249 0378",
+                "phone_2": "+56 9 8686 7034",
+                "discount": "15% de descuento",
+                "url": "comarcavalparaiso.cl",
+                "instagram": "comarcavalparaiso"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hotel Casa Ferrari 406",
+        "logo": "<BASE_URL>/fnb/hotel_casa_ferrari_406.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hotel.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.051104, -71.622062],
+        "description": "<ul><li>Ubicado en R. H. de Ferrari 406 Cerro Bellavista, Valparaíso, Chile.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "R. H. de Ferrari 406 Cerro Bellavista, Valparaíso, Chile",
+                "phone_1": "+56 32 327 1648",
+                "phone_2": "+56 9 9401 0565",
+                "discount": "15% de descuento",
+                "url": "ferrari406.cl",
+                "instagram": "hotel.ferrari.406"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal Puerto Encantado",
+        "logo": "<BASE_URL>/fnb/hostal_puerto_encantado.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.048276, -71.610669],
+        "description": "<ul><li>Ubicado en Victoria 2431, Barrio Almendral Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Victoria 2431, Barrio Almendral Valparaíso",
+                "phone_1": "+56 32 317 2011",
+                "phone_2": "+56 9 9297 3714",
+                "discount": "15% de descuento",
+                "url": "puertoencantado.cl",
+                "instagram": ""
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Comarca Recreo Eco Hostal",
+        "logo": "<BASE_URL>/fnb/comarca_recreo_eco_hostal.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.028768, -71.574289],
+        "description": "<ul><li>Ubicado en Cochrane 229, Recreo, Viña del Mar.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Cochrane 229, Recreo, Viña del Mar",
+                "phone_1": "+56 32 328 4391",
+                "phone_2": "+56 9 9129 8177",
+                "discount": "15% de descuento",
+                "url": "comarcarecreo.cl",
+                "instagram": "comarcarecreo"
+            }
+        }
+    },
+    {
+        "type": "Estadía",
+        "name": "Hostal Plenovalpo",
+        "logo": "<BASE_URL>/fnb/hostal_plenovalpo.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/hostal.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.046500, -71.623745],
+        "description": "<ul><li>Ubicado en Cerro Bellavista – Becker 131, Cerro Bellavista Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Cerro Bellavista – Becker 131, Cerro Bellavista Valparaíso",
+                "phone_1": "+56 9 8804 6688",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "plenovalpo.cl",
+                "instagram": "hostal_plenovalpo"
+            }
+        }
+    },
+    {
+        "type": "Gastronomía",
+        "name": "Restaurant Capri",
+        "logo": "<BASE_URL>/fnb/restaurant_capri.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/restaurant.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.039370, -71.628356],
+        "description": "<ul><li>Ubicado en Cochrane 664, Valparaíso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Cochrane 664, Valparaíso",
+                "phone_1": "+56 9 3895 6186",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "restorancapri.cl",
+                "instagram": "restorancaprivalpo"
+            }
+        }
+    },
+    {
+        "type": "Gastronomía",
+        "name": "Restaurant Del Barrio",
+        "logo": "<BASE_URL>/fnb/restaurant_del_barrio.png",
+        "logo_style": "width: 200px;",
+        "icon": {
+            "url": "<BASE_URL>/fnb/restaurant.png",
+            "width": 350,
+            "height": 350,
+            "anchorY": 350
+        },
+        "coordinates": [-33.047473, -71.612632],
+        "description": "<ul><li>Ubicado en Av Pedro Montt 2302, Valparaiso.</li><li>Descuento: 15% de descuento.</li></ul>",
+        "details": {
+            "footer": [
+                "La reserva es directa con el establecimiento.",
+                "Promoción no acumulable con otros descuentos."
+            ],
+            "conditions": {
+                "direction": "Av Pedro Montt 2302, Valparaiso",
+                "phone_1": "+56 32 221 3345",
+                "phone_2": "",
+                "discount": "15% de descuento",
+                "url": "lachinganadelbarrio.cl",
+                "instagram": "delbarriovalpo"
+            }
+        }
     }
 ]
 
