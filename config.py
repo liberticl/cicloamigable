@@ -1716,6 +1716,7 @@ VLPO_CICLOAMIGABLE = [
 
 MEMT = [
     {
+        "year": 2025,
         "country": "Chile",
         "city": "Antofagasta",
         "destiny": "Parque Brasil",
@@ -1758,6 +1759,7 @@ MEMT = [
         ]
     },
     {
+        "year": 2025,
         "country": "Chile",
         "city": "Concepción",
         "destiny": "Plaza Independencia",
@@ -1813,6 +1815,7 @@ MEMT = [
         ]
     },
     {
+        "year": 2025,
         "country": "Chile",
         "city": "Talca",
         "destiny": "Hospital Regional de Talca",
@@ -1856,6 +1859,7 @@ MEMT = [
         ]
     },
     {
+        "year": 2025,
         "country": "Chile",
         "city": "Curicó",
         "destiny": "Plaza de Armas",
@@ -1886,6 +1890,7 @@ MEMT = [
         ]
     },
     {
+        "year": 2025,
         "country": "Chile",
         "city": "Molina",
         "destiny": "Villa María Auxiliadora",
@@ -1917,6 +1922,7 @@ MEMT = [
         ]
     },
     {
+        "year": 2025,
         "country": "Ecuador",
         "city": "Guayaquil",
         "destiny": "Plaza Pentagonal",
