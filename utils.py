@@ -75,81 +75,15 @@ def get_tabular_memt_data(points):
         route_id = str(val['route_name']).replace(' ', '_').replace('(', '').replace(')', '')
         
         tooltip_html = f"""
-            <div id="tooltip" style="pointer-events: auto;">
+            <div id="tooltip">
                 <b style='font-size: 16px; color: #222;'>
-                    {val['route_name']} ({val['distance_km']} km)
+                    {val['city']} ({val['distance_km']} km)
                 </b>
                 <div style='margin-top: 4px; font-size: 14px;'>
                     <p style="margin-bottom: 5px;">Desde {val['place_name']} hasta {val['destiny']}</p>
-                    <p style="margin-bottom: 5px;">(Tiempo medido en {val['data_unit']})</p>
+                </div>
+            </div>
         """
-        
-        if len(years) > 1:
-            tooltip_html += "<div class='tooltip-tabs'>"
-            for i, y in enumerate(years):
-                checked = "checked" if i == 0 else ""
-                tooltip_html += f"""
-                    <input type="radio" name="tt_year_{route_id}" id="tt_tab_{y}_{route_id}" {checked} style="display: none;">
-                    <label for="tt_tab_{y}_{route_id}" class="tt-tab-label">{y}</label>
-                """
-            tooltip_html += "<div class='tt-tab-contents'>"
-            for i, y in enumerate(years):
-                tdata = val['years_data'][y]
-                tooltip_html += f"""
-                    <div class="tt-tab-content tt-content-{y}">
-                        <table class="travel-table" style="margin-top: 0;">
-                            <thead><tr><th>Modo</th><th style="text-align: center;">Tiempo</th></tr></thead>
-                            <tbody>
-                                <tr><td>Bicicleta</td><td class="minutes" style="text-align: center;">{tdata['bike_time']}</td></tr>
-                                <tr><td>Micro o bus</td><td class="minutes" style="text-align: center;">{tdata['bus_time']}</td></tr>
-                                <tr><td>Automóvil</td><td class="minutes" style="text-align: center;">{tdata['car_time']}</td></tr>
-                                <tr><td>Metro o tren</td><td class="minutes" style="text-align: center;">{tdata['train_time']}</td></tr>
-                                <tr><td>Taxi o colectivo</td><td class="minutes" style="text-align: center;">{tdata['taxi_time']}</td></tr>
-                                <tr><td>Motocicleta</td><td class="minutes" style="text-align: center;">{tdata['moto_time']}</td></tr>
-                                <tr><td>Otros ciclos</td><td class="minutes" style="text-align: center;">{tdata['cicles_time']}</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                """
-            tooltip_html += "</div></div>"
-            
-            tooltip_html += """
-                <style>
-                    .tooltip-tabs { margin-top: 10px; }
-                    .tt-tab-label { 
-                        display: inline-block; padding: 4px 8px; cursor: pointer; 
-                        background: #eee; border-radius: 4px 4px 0 0; margin-right: 2px;
-                        color: #333; border: 1px solid #ccc; border-bottom: none;
-                    }
-                    input[type="radio"]:checked + .tt-tab-label { 
-                        background: #fff; border-bottom: 2px solid #36a9e0; 
-                        font-weight: bold; color: #36a9e0; 
-                    }
-                    .tt-tab-content { display: none; background: #fff; border-top: 1px solid #ccc; padding-top: 5px; }
-                """
-            for y in years:
-                tooltip_html += f'input#tt_tab_{y}_{route_id}:checked ~ .tt-tab-contents .tt-content-{y} {{ display: block; }}'
-            tooltip_html += "</style>"
-            
-        else:
-            y = years[0]
-            tdata = val['years_data'][y]
-            tooltip_html += f"""
-                    <table class="travel-table" style="margin-top: 10px;">
-                        <thead><tr><th>Modo</th><th style="text-align: center;">Tiempo</th></tr></thead>
-                        <tbody>
-                            <tr><td>Bicicleta</td><td class="minutes" style="text-align: center;">{tdata['bike_time']}</td></tr>
-                            <tr><td>Micro o bus</td><td class="minutes" style="text-align: center;">{tdata['bus_time']}</td></tr>
-                            <tr><td>Automóvil</td><td class="minutes" style="text-align: center;">{tdata['car_time']}</td></tr>
-                            <tr><td>Metro o tren</td><td class="minutes" style="text-align: center;">{tdata['train_time']}</td></tr>
-                            <tr><td>Taxi o colectivo</td><td class="minutes" style="text-align: center;">{tdata['taxi_time']}</td></tr>
-                            <tr><td>Motocicleta</td><td class="minutes" style="text-align: center;">{tdata['moto_time']}</td></tr>
-                            <tr><td>Otros ciclos</td><td class="minutes" style="text-align: center;">{tdata['cicles_time']}</td></tr>
-                        </tbody>
-                    </table>
-            """
-            
-        tooltip_html += "</div></div>"
         
         val['tooltip_html'] = tooltip_html
         data.append(val)
