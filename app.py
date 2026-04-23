@@ -37,9 +37,24 @@ def memt():
     points = get_points(MEMT, base_url)
 
     selected = request.args.get('city', None)
+    selected_year = request.args.get('year', None)
+
     city_info = get_city_info(selected, points)
 
-    this_map = create_memt_map(points, city=selected)
+    if selected_year and selected_year.isdigit():
+        selected_year = int(selected_year)
+    elif city_info:
+        selected_year = city_info[0].get('year')
+
+    if selected_year and selected:
+        # Filter points so the map only draws lines for the selected year (for the selected city)
+        # We keep points from other cities intact to show them globally if needed.
+        city_name = selected.replace(' ', '').split('(')[0]
+        map_points = [p for p in points if p['city'] != city_name or p.get('year') == selected_year]
+    else:
+        map_points = points
+
+    this_map = create_memt_map(map_points, city=selected)
     headers, deckgl = get_html(this_map)
 
     cities = sorted(list({f"{point['city']} ({point['country']})" for point in points})) # noqa
@@ -49,6 +64,7 @@ def memt():
                            map=deckgl,
                            cities=cities,
                            selected=selected,
+                           selected_year=selected_year,
                            city_info=city_info)
 
 

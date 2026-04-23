@@ -60,8 +60,8 @@
             
             <div class="memt-tabs">
                 {% for point in city_info %}
-                <input type="radio" name="memt_year_tab" id="memt_tab_{{ point.year }}" class="memt-tab-input" {% if loop.first %}checked{% endif %} style="display: none;">
-                <label for="memt_tab_{{ point.year }}" class="memt-tab-label">{{ point.year }}</label>
+                <input type="radio" name="memt_year_tab" id="memt_tab_{{ point.year }}" class="memt-tab-input" {% if (selected_year and point.year|string == selected_year|string) or (not selected_year and loop.first) %}checked{% endif %} style="display: none;">
+                <label for="memt_tab_{{ point.year }}" class="memt-tab-label" onclick="window.location.href='{{ url_for('memt', city=selected, year=point.year) }}'">{{ point.year }}</label>
                 {% endfor %}
 
                 <div style="margin-top: 10px;">
