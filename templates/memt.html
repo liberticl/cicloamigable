@@ -114,5 +114,67 @@
         <div class="map-content">
             {{ map|safe }}
         </div>
+
+        <style>
+            .pinned-tooltip {
+                z-index: 9999 !important;
+                pointer-events: auto !important;
+                display: block !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 2px #008958 !important;
+                transition: none !important;
+                cursor: pointer;
+            }
+            .pinned-tooltip::after {
+                content: "(Cerrar)";
+                display: block;
+                font-size: 11px;
+                color: #008958;
+                text-align: right;
+                margin-top: 8px;
+                font-weight: bold;
+            }
+        </style>
+        <script>
+            let pinnedTooltip = null;
+            document.addEventListener('click', function(e) {
+                // Si el clic fue en un tooltip pineado (o en uno de sus hijos), lo cerramos
+                if (e.target.closest('.pinned-tooltip')) {
+                    e.target.closest('.pinned-tooltip').remove();
+                    pinnedTooltip = null;
+                    return;
+                }
+                
+                // Buscar el tooltip original de deck.gl
+                const tooltipInner = document.getElementById('tooltip');
+                if (tooltipInner) {
+                    const tooltipContainer = tooltipInner.closest('.deck-tooltip');
+                    // Si existe, no está oculto y no hemos hecho clic en los tabs de la tabla
+                    if (tooltipContainer && tooltipContainer.style.display !== 'none' && !e.target.closest('.table')) {
+                        // Remover el tooltip pineado anterior si existe
+                        if (pinnedTooltip) {
+                            pinnedTooltip.remove();
+                        }
+                        // Clonar el tooltip actual de deck.gl
+                        pinnedTooltip = tooltipContainer.cloneNode(true);
+                        pinnedTooltip.classList.add('pinned-tooltip');
+                        
+                        // Insertarlo en el mismo contenedor para que mantenga sus coordenadas y límites
+                        tooltipContainer.parentNode.appendChild(pinnedTooltip);
+                        
+                    } else if (pinnedTooltip && !e.target.closest('.table')) {
+                        // Si se hace clic en el mapa vacío (sin hover en una ruta), se remueve el pineado
+                        pinnedTooltip.remove();
+                        pinnedTooltip = null;
+                    }
+                } else if (pinnedTooltip && !e.target.closest('.table')) {
+                    pinnedTooltip.remove();
+                    pinnedTooltip = null;
+                }
+            });
+        </script>
     </div>
 </body>
+
+</html>
