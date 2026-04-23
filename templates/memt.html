@@ -61,9 +61,7 @@
             <div class="memt-tabs">
                 {% for point in city_info %}
                 <input type="radio" name="memt_year_tab" id="memt_tab_{{ point.year }}" class="memt-tab-input" {% if loop.first %}checked{% endif %} style="display: none;">
-                {% if city_info|length > 1 %}
                 <label for="memt_tab_{{ point.year }}" class="memt-tab-label">{{ point.year }}</label>
-                {% endif %}
                 {% endfor %}
 
                 <div style="margin-top: 10px;">
