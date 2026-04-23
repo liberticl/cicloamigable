@@ -18,34 +18,46 @@ def get_city_info(selected, points):
         return None
 
     sel = selected.replace(' ', '').split('(')
+    city_points = []
     for p in points:
         if p['city'] == sel[0] and p['country'] == sel[1].replace(')', ''):
-            return p
-    return None
+            city_points.append(p)
+            
+    if not city_points:
+        return None
+        
+    city_points.sort(key=lambda x: x.get('year', 2025), reverse=True)
+    return city_points
 
 
 def get_tabular_memt_data(points):
-    data = []
+    grouped = {}
     for point in points:
         target_lng, target_lat = point['coordinates']
+        year = point.get('year', 2025)
         for measure in point['measures']:
             source_lng, source_lat = measure['coordinates']
-            # Accedemos al primer elemento de 'data'
             transport_data = measure['data'][0]
-
-            data.append({
-                # Coordenadas de origen (source)
-                'source_lng': source_lng,
-                'source_lat': source_lat,
-                # Coordenadas de destino (target)
-                'target_lng': target_lng,
-                'target_lat': target_lat,
-                # Metadatos adicionales
-                'place_name': measure['place_name'],
-                'route_name': measure['route_name'],
-                'distance_km': measure['distance'],
-                'data_unit': point['data_unit'],
-                # Tiempos de transporte
+            
+            key = (point['city'], point['country'], point['destiny'], measure['place_name'], measure['route_name'])
+            
+            if key not in grouped:
+                grouped[key] = {
+                    'source_lng': source_lng,
+                    'source_lat': source_lat,
+                    'target_lng': target_lng,
+                    'target_lat': target_lat,
+                    'place_name': measure['place_name'],
+                    'route_name': measure['route_name'],
+                    'distance_km': measure['distance'],
+                    'data_unit': point['data_unit'],
+                    'country': point['country'],
+                    'city': point['city'],
+                    'destiny': point['destiny'],
+                    'years_data': {}
+                }
+            
+            grouped[key]['years_data'][year] = {
                 'bike_time': transport_data.get('bike', "-"),
                 'bus_time': transport_data.get('bus', "-"),
                 'taxi_time': transport_data.get('taxi', "-"),
@@ -55,11 +67,93 @@ def get_tabular_memt_data(points):
                 'train_time': transport_data.get('train', "-"),
                 'cicles_time': transport_data.get('cicles', "-"),
                 'other_time': transport_data.get('other', "-"),
-                # Datos globales del punto
-                'country': point['country'],
-                'city': point['city'],
-                'destiny': point['destiny']
-            })
+            }
+
+    data = []
+    for val in grouped.values():
+        years = sorted(list(val['years_data'].keys()), reverse=True)
+        route_id = str(val['route_name']).replace(' ', '_').replace('(', '').replace(')', '')
+        
+        tooltip_html = f"""
+            <div id="tooltip" style="pointer-events: auto;">
+                <b style='font-size: 16px; color: #222;'>
+                    {val['route_name']} ({val['distance_km']} km)
+                </b>
+                <div style='margin-top: 4px; font-size: 14px;'>
+                    <p style="margin-bottom: 5px;">Desde {val['place_name']} hasta {val['destiny']}</p>
+                    <p style="margin-bottom: 5px;">(Tiempo medido en {val['data_unit']})</p>
+        """
+        
+        if len(years) > 1:
+            tooltip_html += "<div class='tooltip-tabs'>"
+            for i, y in enumerate(years):
+                checked = "checked" if i == 0 else ""
+                tooltip_html += f"""
+                    <input type="radio" name="tt_year_{route_id}" id="tt_tab_{y}_{route_id}" {checked} style="display: none;">
+                    <label for="tt_tab_{y}_{route_id}" class="tt-tab-label">{y}</label>
+                """
+            tooltip_html += "<div class='tt-tab-contents'>"
+            for i, y in enumerate(years):
+                tdata = val['years_data'][y]
+                tooltip_html += f"""
+                    <div class="tt-tab-content tt-content-{y}">
+                        <table class="travel-table" style="margin-top: 0;">
+                            <thead><tr><th>Modo</th><th style="text-align: center;">Tiempo</th></tr></thead>
+                            <tbody>
+                                <tr><td>Bicicleta</td><td class="minutes" style="text-align: center;">{tdata['bike_time']}</td></tr>
+                                <tr><td>Micro o bus</td><td class="minutes" style="text-align: center;">{tdata['bus_time']}</td></tr>
+                                <tr><td>Automóvil</td><td class="minutes" style="text-align: center;">{tdata['car_time']}</td></tr>
+                                <tr><td>Metro o tren</td><td class="minutes" style="text-align: center;">{tdata['train_time']}</td></tr>
+                                <tr><td>Taxi o colectivo</td><td class="minutes" style="text-align: center;">{tdata['taxi_time']}</td></tr>
+                                <tr><td>Motocicleta</td><td class="minutes" style="text-align: center;">{tdata['moto_time']}</td></tr>
+                                <tr><td>Otros ciclos</td><td class="minutes" style="text-align: center;">{tdata['cicles_time']}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                """
+            tooltip_html += "</div></div>"
+            
+            tooltip_html += """
+                <style>
+                    .tooltip-tabs { margin-top: 10px; }
+                    .tt-tab-label { 
+                        display: inline-block; padding: 4px 8px; cursor: pointer; 
+                        background: #eee; border-radius: 4px 4px 0 0; margin-right: 2px;
+                        color: #333; border: 1px solid #ccc; border-bottom: none;
+                    }
+                    input[type="radio"]:checked + .tt-tab-label { 
+                        background: #fff; border-bottom: 2px solid #36a9e0; 
+                        font-weight: bold; color: #36a9e0; 
+                    }
+                    .tt-tab-content { display: none; background: #fff; border-top: 1px solid #ccc; padding-top: 5px; }
+                """
+            for y in years:
+                tooltip_html += f'input#tt_tab_{y}_{route_id}:checked ~ .tt-tab-contents .tt-content-{y} {{ display: block; }}'
+            tooltip_html += "</style>"
+            
+        else:
+            y = years[0]
+            tdata = val['years_data'][y]
+            tooltip_html += f"""
+                    <table class="travel-table" style="margin-top: 10px;">
+                        <thead><tr><th>Modo</th><th style="text-align: center;">Tiempo</th></tr></thead>
+                        <tbody>
+                            <tr><td>Bicicleta</td><td class="minutes" style="text-align: center;">{tdata['bike_time']}</td></tr>
+                            <tr><td>Micro o bus</td><td class="minutes" style="text-align: center;">{tdata['bus_time']}</td></tr>
+                            <tr><td>Automóvil</td><td class="minutes" style="text-align: center;">{tdata['car_time']}</td></tr>
+                            <tr><td>Metro o tren</td><td class="minutes" style="text-align: center;">{tdata['train_time']}</td></tr>
+                            <tr><td>Taxi o colectivo</td><td class="minutes" style="text-align: center;">{tdata['taxi_time']}</td></tr>
+                            <tr><td>Motocicleta</td><td class="minutes" style="text-align: center;">{tdata['moto_time']}</td></tr>
+                            <tr><td>Otros ciclos</td><td class="minutes" style="text-align: center;">{tdata['cicles_time']}</td></tr>
+                        </tbody>
+                    </table>
+            """
+            
+        tooltip_html += "</div></div>"
+        
+        val['tooltip_html'] = tooltip_html
+        data.append(val)
+        
     return pd.DataFrame(data)
 
 
@@ -162,75 +256,14 @@ def create_memt_map(points, city=None):
         height="500px",
         width="100%",
         tooltip={
-            "html": """
-                <div id="tooltip">
-                    <b style='font-size: 16px; color: #222;'>
-                        {route_name} ({distance_km} km)
-                    </b>
-                    <div style='margin-top: 4px; font-size: 14px;'>
-                        <p>Desde {place_name} hasta {destiny}</p>
-                        <p>(Tiempo medido en {data_unit})</p>
-                        <table class="travel-table">
-                            <thead>
-                                <tr>
-                                    <th>Modo</th>
-                                    <th style="text-align: center;">Tiempo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bicicleta</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{bike_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Micro o bus</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{bus_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Automóvil</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{car_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Taxi o colectivo</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{taxi_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Motocicleta</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{moto_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Metro o tren</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{train_time}</td>
-                                </tr>
-                                <tr>
-                                    <td>Otros ciclos</td>
-                                    <td class="minutes"
-                                        style="text-align: center;"
-                                        >{cicles_time}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            """,
+            "html": "{tooltip_html}",
             "style": {
                 "text-align": "center",
-                "backgroundColor": "rgb(255,255,255,0.7)",
+                "backgroundColor": "rgb(255,255,255,0.95)",
                 "padding": "10px",
                 "borderRadius": "1.5rem",
-                "boxShadow": "0 2px 10px rgba(0,0,0,0.2)"
+                "boxShadow": "0 2px 10px rgba(0,0,0,0.2)",
+                "pointerEvents": "auto"
             }
         }
     )

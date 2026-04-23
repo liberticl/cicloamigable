@@ -112,7 +112,7 @@
 .table {
   position: absolute;
   left: 2%;
-  top: 28%;
+  top: 23%;
   /* width: 95%; */
   max-width: 100%;
   margin: 0 auto;
@@ -164,4 +164,37 @@
     width: 90%;
     margin-top: 0;
   }
+}
+
+/* Tabs para años en tabla memt */
+.memt-tabs {
+  margin-top: 10px;
+}
+.memt-tab-label {
+  display: inline-block;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #e8f4f868;
+  border-radius: 8px;
+  margin-right: 0;
+  color: #364955;
+  font-weight: 600;
+  border: 1px solid #BFD1DD;
+}
+.memt-tab-input:checked + .memt-tab-label {
+  background: #fff;
+  border-bottom: 2px solid #008958;
+  color: #008958;
+}
+.memt-tab-panel {
+  display: none;
+}
+/* La magia de CSS para mostrar la tab seleccionada */
+#memt_tab_2025:checked ~ .memt-tabs-content #memt_panel_2025,
+#memt_tab_2026:checked ~ .memt-tabs-content #memt_panel_2026 {
+/* #memt_tab_2027:checked ~ .memt-tabs-content #memt_panel_2027,
+#memt_tab_2028:checked ~ .memt-tabs-content #memt_panel_2028,
+#memt_tab_2029:checked ~ .memt-tabs-content #memt_panel_2029,
+#memt_tab_2030:checked ~ .memt-tabs-content #memt_panel_2030 { */
+  display: block;
 }

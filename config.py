@@ -1965,7 +1965,63 @@ MEMT = [
                 ]
             }
         ]
-    }
+    },
+    {
+        "year": 2026,
+        "country": "Chile",
+        "city": "Concepción",
+        "destiny": "Plaza Independencia",
+        "coordinates": [-36.827098, -73.050154],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-36.820138, -73.014921],
+                "place_name": "Lugar 2",
+                "route_name": "Concepción",
+                "distance": 5,
+                "data": [
+                    {
+                        "bike": 13,
+                        "bus": 30,
+                        "car": 34,
+                    }
+                ]
+            },
+            {
+                "coordinates": [-36.926334, -73.024522],
+                "place_name": "Plaza X",
+                "route_name": "Chiguayante",
+                "distance": 12,
+                "data": [
+                    {
+                        "bike": 39.5,
+                        "bus": 37,
+                        "car": 36,
+                        "train": 50
+                    }
+                ]
+            },
+            {
+                "coordinates": [-36.846252, -73.130743],
+                "place_name": "Estación Alborada",
+                "route_name": "San Pedro de la Paz",
+                "distance": 10,
+                "data": [
+                    {
+                        "car": 46,
+                        "train": 33
+                    }
+                ]
+            }
+        ]
+    },
 ]
 
 
