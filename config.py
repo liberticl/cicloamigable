@@ -1967,11 +1967,14 @@ MEMT = [
         ]
     },
     {
-        "year": 2026,
+        "year": 2025,
         "country": "Chile",
-        "city": "Concepción",
-        "destiny": "Plaza Independencia",
-        "coordinates": [-36.827098, -73.050154],
+        "city": "Coyhaique",
+        "destiny": "Plaza Pentagonal",
+        "coordinates": [
+            -45.571238,
+            -72.068476
+        ],
         "data_unit": "minutos",
         "distance_unit": "kilómetros",
         "icon": {
@@ -1982,46 +1985,124 @@ MEMT = [
         },
         "measures": [
             {
-                "coordinates": [-36.820138, -73.014921],
-                "place_name": "Lugar 2",
-                "route_name": "Concepción",
+                "coordinates": [
+                    -45.586620,
+                    -72.041640
+                ],
+                "place_name": "Socovesa",
+                "route_name": "Socovesa",
+                "distance": 3,
+                "data": [
+                    {
+                        "bike": 7,
+                        "car": 8,
+                        "walk": 31
+                    }
+                ]
+            },
+            {
+                "coordinates": [
+                    -45.577945,
+                    -72.045733
+                ],
+                "place_name": "Oscar del Río",
+                "route_name": "Oscar del Río",
+                "distance": 3,
+                "data": [
+                    {
+                        "bike": 10,
+                        "car": 10
+                    }
+                ]
+            },
+            {
+                "coordinates": [
+                    -45.566280,
+                    -72.029075
+                ],
+                "place_name": "Tejas Verdes",
+                "route_name": "Tejas Verdes",
                 "distance": 5,
                 "data": [
                     {
-                        "bike": 13,
-                        "bus": 30,
-                        "car": 34,
-                    }
-                ]
-            },
-            {
-                "coordinates": [-36.926334, -73.024522],
-                "place_name": "Plaza X",
-                "route_name": "Chiguayante",
-                "distance": 12,
-                "data": [
-                    {
-                        "bike": 39.5,
-                        "bus": 37,
-                        "car": 36,
-                        "train": 50
-                    }
-                ]
-            },
-            {
-                "coordinates": [-36.846252, -73.130743],
-                "place_name": "Estación Alborada",
-                "route_name": "San Pedro de la Paz",
-                "distance": 10,
-                "data": [
-                    {
-                        "car": 46,
-                        "train": 33
+                        "bike": 18,
+                        "car": 18
                     }
                 ]
             }
         ]
     },
+    {
+        "year": 2026,
+        "country": "Chile",
+        "city": "Coyhaique",
+        "destiny": "Plaza Pentagonal",
+        "coordinates": [-45.571225, -72.068265],
+        "data_unit": "minutos",
+        "distance_unit": "kilómetros",
+        "icon": {
+            "url": "<BASE_URL>/memt/logo.png",
+            "width": 250,
+            "height": 250,
+            "anchorY": 250
+        },
+        "measures": [
+            {
+                "coordinates": [-45.578631, -72.060112],
+                "place_name": "Cruce Cementerio",
+                "route_name": "Coyhaique",
+                "distance": 2.8,
+                "elevation": 69,
+                "data": [
+                    {
+                        "bike": 13,
+                        "car": 14
+                    }
+                ]
+            },
+            {
+                "coordinates": [-45.577945, -72.045733],
+                "place_name": "Oscar del río / Simpson",
+                "route_name": "Coyhaique",
+                "distance": 3.0,
+                "elevation": 2,
+                "data": [
+                    {
+                        "bike": 7,
+                        "car": 16
+                    }
+                ]
+            },
+            {
+                "coordinates": [-45.586620, -72.041640],
+                "place_name": "Villa Estancia Austral",
+                "route_name": "Coyhaique",
+                "distance": 3.0,
+                "elevation": 11,
+                "data": [
+                    {
+                        "bike": 8,
+                        "ebike": 8,
+                        "car": 16
+                    }
+                ]
+            },
+            {
+                "coordinates": [-45.566280, -72.029075],
+                "place_name": "Tejas Verdes",
+                "route_name": "Coyhaique",
+                "distance": 4.6,
+                "elevation": 86,
+                "data": [
+                    {
+                        "bike": 14,
+                        "ebike": 16,
+                        "car": 15
+                    }
+                ]
+            }
+        ]
+    }
 ]
 
 
