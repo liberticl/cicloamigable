@@ -26,6 +26,16 @@ def get_city_info(selected, points):
     if not city_points:
         return None
         
+    for p in city_points:
+        p['has_bike'] = any(m['data'][0].get('bike') is not None for m in p['measures'])
+        p['has_ebike'] = any(m['data'][0].get('ebike') is not None for m in p['measures'])
+        p['has_bus'] = any(m['data'][0].get('bus') is not None for m in p['measures'])
+        p['has_car'] = any(m['data'][0].get('car') is not None for m in p['measures'])
+        p['has_train'] = any(m['data'][0].get('train') is not None for m in p['measures'])
+        p['has_taxi'] = any(m['data'][0].get('taxi') is not None for m in p['measures'])
+        p['has_moto'] = any(m['data'][0].get('moto') is not None for m in p['measures'])
+        p['has_cicles'] = any(m['data'][0].get('cicles') is not None for m in p['measures'])
+
     city_points.sort(key=lambda x: x.get('year', 2025), reverse=True)
     return city_points
 

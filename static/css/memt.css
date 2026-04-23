@@ -113,16 +113,11 @@
   position: absolute;
   left: 2%;
   top: 23%;
-  /* width: 95%; */
-  max-width: 100%;
+  max-width: 95vw;
   margin: 0 auto;
   padding: 20px;
   z-index: 100;
-  /* background: rgba(255, 255, 255, 0.9); */
-  padding: 20px;
-  /* border-radius: 15px; */
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
-  width: 510px;
+  width: fit-content;
   transition: all 0.3s ease;
 }
 
@@ -197,4 +192,18 @@
 #memt_tab_2029:checked ~ .memt-tabs-content #memt_panel_2029,
 #memt_tab_2030:checked ~ .memt-tabs-content #memt_panel_2030 { */
   display: block;
+}
+
+/* Iconos de transporte */
+.transport-icon {
+  width: 32px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.transport-fa-icon {
+  font-size: 24px;
+  color: #364955;
+  vertical-align: middle;
 }

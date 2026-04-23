@@ -76,55 +76,31 @@
                             <table class="travel-table">
                                 <thead>
                                     <tr>
-                                        <th>Modo</th>
-                                        {% for route in point.measures %}
-                                        <th style="text-align: center;">{{ route.place_name }}<br>({{ route.distance }} km)</th>
-                                        {% endfor %}
+                                        <th>Punto de partida</th>
+                                        {% if point.has_bike %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/bike.png') }}" class="transport-icon" alt="Bicicleta" title="Bicicleta"></th>{% endif %}
+                                        {% if point.has_ebike %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/ebike.png') }}" class="transport-icon" alt="Bicicleta Eléctrica" title="Bicicleta Eléctrica"></th>{% endif %}
+                                        {% if point.has_bus %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/bus.png') }}" class="transport-icon" alt="Micro o bus" title="Micro o bus"></th>{% endif %}
+                                        {% if point.has_car %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/car.png') }}" class="transport-icon" alt="Automóvil" title="Automóvil"></th>{% endif %}
+                                        {% if point.has_train %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/train.png') }}" class="transport-icon" alt="Metro o tren" title="Metro o tren"></th>{% endif %}
+                                        {% if point.has_taxi %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/taxi.png') }}" class="transport-icon" alt="Taxi o colectivo" title="Taxi o colectivo"></th>{% endif %}
+                                        {% if point.has_moto %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/moto.png') }}" class="transport-icon" alt="Motocicleta" title="Motocicleta"></th>{% endif %}
+                                        {% if point.has_cicles %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/scooter.png') }}" class="transport-icon" alt="Otros ciclos" title="Otros ciclos"></th>{% endif %}
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for measure in point.measures %}
                                     <tr>
-                                        <td>Bicicleta</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].bike|default('-', true) }}</td>
-                                        {% endfor %}
+                                        <td>{{ measure.place_name }}<br>({{ measure.distance }} km)</td>
+                                        {% if point.has_bike %}<td class="minutes" style="text-align: center;">{{ measure.data[0].bike|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_ebike %}<td class="minutes" style="text-align: center;">{{ measure.data[0].ebike|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_bus %}<td class="minutes" style="text-align: center;">{{ measure.data[0].bus|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_car %}<td class="minutes" style="text-align: center;">{{ measure.data[0].car|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_train %}<td class="minutes" style="text-align: center;">{{ measure.data[0].train|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_taxi %}<td class="minutes" style="text-align: center;">{{ measure.data[0].taxi|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_moto %}<td class="minutes" style="text-align: center;">{{ measure.data[0].moto|default('-', true) }}</td>{% endif %}
+                                        {% if point.has_cicles %}<td class="minutes" style="text-align: center;">{{ measure.data[0].cicles|default('-', true) }}</td>{% endif %}
                                     </tr>
-                                    <tr>
-                                        <td>Micro o bus</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].bus|default('-', true) }}</td>
-                                        {% endfor %}
-                                    </tr>
-                                    <tr>
-                                        <td>Automóvil</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].car|default('-', true) }}</td>
-                                        {% endfor %}
-                                    </tr>
-                                    <tr>
-                                        <td>Metro o tren</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].train|default('-', true) }}</td>
-                                        {% endfor %}
-                                    </tr>
-                                    <tr>
-                                        <td>Taxi o colectivo</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].taxi|default('-', true) }}</td>
-                                        {% endfor %}
-                                    </tr>
-                                    <tr>
-                                        <td>Motocicleta</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].moto|default('-', true) }}</td>
-                                        {% endfor %}
-                                    </tr>
-                                    <tr>
-                                        <td>Otros ciclos</td>
-                                        {% for measure in point.measures %}
-                                        <td class="minutes" style="text-align: center;">{{ measure.data[0].cicles|default('-', true) }}</td>
-                                        {% endfor %}
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
