@@ -252,7 +252,7 @@ def create_fnb_map(points):
     )
 
     r = pdk.Deck(
-        layers=[hostals_layer], #, travel_layer],
+        layers=[hostals_layer], # , travel_layer],
         initial_view_state=view_state,
         map_style="light",
         height="500px",
