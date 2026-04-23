@@ -22,94 +22,95 @@
 
         <div class="navbar-space"></div>
 
-        {% if not city_info %}
-        <div class="table">
-            <b class="table-title">¿Qué es el MEMT?</b>
-            <p class="paragraph" style="margin-top: 10px; text-align:justify">
-                La medicion de eficiencia en modos de transporte es una actividad basada en voluntarios/as que busca
-                determinar los tiempos de
-                traslado en hora punta en diversas ciudades del continente.
-            </p>
-            <p class="paragraph" style="margin-top: 10px; text-align:justify">
-                Esta medición busca generar datos sobre las condiciones de movilidad de los diferentes usuarios, ya sean
-                bicicletas, scooter, skates, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
-                basado en información, activar ,la participacion ciudadana, medios locales y politicos, buscando
-                promover el uso seguro y eficiente del espacio público.
-            </p>
-        </div>
-        {% endif %}
-
-        <div class="city-form">
-            <form method="get" action="{{ url_for('memt') }}">
-                <div class="form-group">
-                    <label class="form-label" for="city-selector">Seleccionar lugar</label>
-                    <select class="form-select" id="city-selector" name="city" onchange="this.form.submit()">
-                        <option value="">Todos</option>
-                        {% for city in cities %}
+        <div class="left-panel">
+            <div class="city-form">
+                <form method="get" action="{{ url_for('memt') }}">
+                    <div class="form-group">
+                        <label class="form-label" for="citySelect">Selecciona una ciudad</label>
+                        <select id="citySelect" name="city" class="form-select" onchange="this.form.submit()">
+                            <option value="" {% if not selected %}selected{% endif %}>Elige una ciudad...</option>
+                            {% for city in cities %}
                         <option value="{{ city }}" {% if selected==city %}selected{% endif %}>
                             {{ city }}
                         </option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </form>
-        </div>
-
-        {% if city_info %}
-        <div class="table">
-            
-            <div class="memt-tabs">
-                {% for point in city_info %}
-                <input type="radio" name="memt_year_tab" id="memt_tab_{{ point.year }}" class="memt-tab-input" {% if (selected_year and point.year|string == selected_year|string) or (not selected_year and loop.first) %}checked{% endif %} style="display: none;">
-                <label for="memt_tab_{{ point.year }}" class="memt-tab-label" onclick="window.location.href='{{ url_for('memt', city=selected, year=point.year) }}'">{{ point.year }}</label>
-                {% endfor %}
-
-                <div style="margin-top: 10px;">
-                    <b class="table-title">Destino: {{ city_info[0].destiny }}</b>
-                    <p class="paragraph">(Tiempo medido en {{ city_info[0].data_unit }})</p>
-                </div>
-                
-                <div class="memt-tabs-content">
-                    {% for point in city_info %}
-                    <div class="memt-tab-panel" id="memt_panel_{{ point.year }}">
-                        <div class="table-container">
-                            <table class="travel-table">
-                                <thead>
-                                    <tr>
-                                        <th>Punto de partida</th>
-                                        {% if point.has_bike %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/bike.png') }}" class="transport-icon" alt="Bicicleta" title="Bicicleta"></th>{% endif %}
-                                        {% if point.has_ebike %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/ebike.png') }}" class="transport-icon" alt="Bicicleta Eléctrica" title="Bicicleta Eléctrica"></th>{% endif %}
-                                        {% if point.has_bus %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/bus.png') }}" class="transport-icon" alt="Micro o bus" title="Micro o bus"></th>{% endif %}
-                                        {% if point.has_car %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/car.png') }}" class="transport-icon" alt="Automóvil" title="Automóvil"></th>{% endif %}
-                                        {% if point.has_train %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/train.png') }}" class="transport-icon" alt="Metro o tren" title="Metro o tren"></th>{% endif %}
-                                        {% if point.has_taxi %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/taxi.png') }}" class="transport-icon" alt="Taxi o colectivo" title="Taxi o colectivo"></th>{% endif %}
-                                        {% if point.has_moto %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/moto.png') }}" class="transport-icon" alt="Motocicleta" title="Motocicleta"></th>{% endif %}
-                                        {% if point.has_cicles %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/scooter.png') }}" class="transport-icon" alt="Otros ciclos" title="Otros ciclos"></th>{% endif %}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for measure in point.measures %}
-                                    <tr>
-                                        <td>{{ measure.place_name }}<br>({{ measure.distance }} km)</td>
-                                        {% if point.has_bike %}<td class="minutes" style="text-align: center;">{{ measure.data[0].bike|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_ebike %}<td class="minutes" style="text-align: center;">{{ measure.data[0].ebike|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_bus %}<td class="minutes" style="text-align: center;">{{ measure.data[0].bus|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_car %}<td class="minutes" style="text-align: center;">{{ measure.data[0].car|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_train %}<td class="minutes" style="text-align: center;">{{ measure.data[0].train|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_taxi %}<td class="minutes" style="text-align: center;">{{ measure.data[0].taxi|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_moto %}<td class="minutes" style="text-align: center;">{{ measure.data[0].moto|default('-', true) }}</td>{% endif %}
-                                        {% if point.has_cicles %}<td class="minutes" style="text-align: center;">{{ measure.data[0].cicles|default('-', true) }}</td>{% endif %}
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
+                            {% endfor %}
+                        </select>
                     </div>
+                </form>
+            </div>
+            {% if not city_info %}
+            <div class="description-table">
+                <b class="table-title">¿Qué es el MEMT?</b>
+                <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                    La medicion de eficiencia en modos de transporte es una actividad basada en voluntarios/as que busca
+                    determinar los tiempos de
+                    traslado en hora punta en diversas ciudades del continente.
+                </p>
+                <p class="paragraph" style="margin-top: 10px; text-align:justify">
+                    Esta medición busca generar datos sobre las condiciones de movilidad de los diferentes usuarios, ya sean
+                    bicicletas, scooter, skates, transporte público, metro, buses u otros, creando un insumo para tomar decisiones
+                    basado en información, activar ,la participacion ciudadana, medios locales y politicos, buscando
+                    promover el uso seguro y eficiente del espacio público.
+                </p>
+            </div>
+            {% endif %}
+
+            {% if city_info %}
+            <div class="table">
+                
+                <div class="memt-tabs">
+                    {% for point in city_info %}
+                    <input type="radio" name="memt_year_tab" id="memt_tab_{{ point.year }}" class="memt-tab-input" {% if (selected_year and point.year|string == selected_year|string) or (not selected_year and loop.first) %}checked{% endif %} style="display: none;">
+                    <label for="memt_tab_{{ point.year }}" class="memt-tab-label" onclick="window.location.href='{{ url_for('memt', city=selected, year=point.year) }}'">{{ point.year }}</label>
                     {% endfor %}
+
+                    <div style="margin-top: 10px;">
+                        <b class="table-title">Destino: {{ city_info[0].destiny }}</b>
+                        <p>(Tiempo medido en {{ city_info[0].data_unit }})</p>
+                    </div>
+                    
+                    <div class="memt-tabs-content">
+                        {% for point in city_info %}
+                        <div class="memt-tab-panel" id="memt_panel_{{ point.year }}">
+                            <div class="table-container">
+                                <table class="travel-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Punto de partida</th>
+                                            {% if point.has_bike %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/bike.png') }}" class="transport-icon" alt="Bicicleta" title="Bicicleta"></th>{% endif %}
+                                            {% if point.has_ebike %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/ebike.png') }}" class="transport-icon" alt="Bicicleta Eléctrica" title="Bicicleta Eléctrica"></th>{% endif %}
+                                            {% if point.has_bus %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/bus.png') }}" class="transport-icon" alt="Micro o bus" title="Micro o bus"></th>{% endif %}
+                                            {% if point.has_car %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/car.png') }}" class="transport-icon" alt="Automóvil" title="Automóvil"></th>{% endif %}
+                                            {% if point.has_train %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/train.png') }}" class="transport-icon" alt="Metro o tren" title="Metro o tren"></th>{% endif %}
+                                            {% if point.has_taxi %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/taxi.png') }}" class="transport-icon" alt="Taxi o colectivo" title="Taxi o colectivo"></th>{% endif %}
+                                            {% if point.has_moto %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/moto.png') }}" class="transport-icon" alt="Motocicleta" title="Motocicleta"></th>{% endif %}
+                                            {% if point.has_cicles %}<th style="text-align: center;"><img src="{{ url_for('static', filename='img/icons/memt/scooter.png') }}" class="transport-icon" alt="Otros ciclos" title="Otros ciclos"></th>{% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for measure in point.measures %}
+                                        <tr>
+                                            <td>{{ measure.place_name }}<br>({{ measure.distance }} km)</td>
+                                            {% if point.has_bike %}<td class="minutes" style="text-align: center;">{{ measure.data[0].bike|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_ebike %}<td class="minutes" style="text-align: center;">{{ measure.data[0].ebike|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_bus %}<td class="minutes" style="text-align: center;">{{ measure.data[0].bus|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_car %}<td class="minutes" style="text-align: center;">{{ measure.data[0].car|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_train %}<td class="minutes" style="text-align: center;">{{ measure.data[0].train|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_taxi %}<td class="minutes" style="text-align: center;">{{ measure.data[0].taxi|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_moto %}<td class="minutes" style="text-align: center;">{{ measure.data[0].moto|default('-', true) }}</td>{% endif %}
+                                            {% if point.has_cicles %}<td class="minutes" style="text-align: center;">{{ measure.data[0].cicles|default('-', true) }}</td>{% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endif %}
+            {% endif %}
+        </div> 
 
         <div class="map-content">
             {{ map|safe }}

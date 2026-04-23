@@ -27,22 +27,26 @@
   margin-top: 6%;
 }
 
-/* Formulario de selección de comunas */
-.city-form {
-  position: absolute;
+.left-panel {
+  position: relative;
   left: 2%;
   top: 12%;
-  width: 90%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px;
+  width: 38vw;
+  min-width: 350px;
+  max-width: 530px;
   z-index: 100;
-  /* background: rgba(255, 255, 255, 0.9); */
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
   border-radius: 15px;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
-  width: 500px;
-  /* transition: all 0.3s ease; */
+  /* box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15); */
+  backdrop-filter: blur(5px);
+}
+
+/* Formulario de selección de comunas */
+.city-form {
+  width: 100%;
 }
 
 /* .city-form:hover {
@@ -110,19 +114,28 @@
 
 /* TABLAS */
 .table {
-  position: absolute;
-  left: 2%;
-  top: 23%;
-  max-width: 95vw;
-  margin: 0 auto;
-  padding: 20px;
-  z-index: 100;
   width: fit-content;
+  max-width: 100%;
   transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow-x: auto;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.description-table {
+  width: fit-content;
+  max-width: 100%;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow-x: auto;
+  text-align: center;
 }
 
 /* Versión responsive */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .navbar-space {
     height: 80px;
   }
@@ -164,6 +177,17 @@
 /* Tabs para años en tabla memt */
 .memt-tabs {
   margin-top: 10px;
+  text-align: center;
+}
+
+.memt-tabs-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.travel-table {
+  margin: 20px 0;
 }
 .memt-tab-label {
   display: inline-block;
